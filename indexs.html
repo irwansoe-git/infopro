@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RumahImpian.id - Jual & Sewa Properti Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --primary: #1e40af;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .property-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .property-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .gallery-img {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #1e40af;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .modal {
+            animation: modalPop 0.3s ease forwards;
+        }
+        
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white text-2xl font-bold">🏠</div>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight text-blue-900">RumahImpian.id</h1>
+                    <p class="text-xs text-gray-500 -mt-1">Properti Terpercaya</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#beranda" class="nav-link text-gray-700 hover:text-blue-700">Beranda</a>
+                <a href="#properti" class="nav-link text-gray-700 hover:text-blue-700">Properti</a>
+                <a href="#jual" class="nav-link text-gray-700 hover:text-blue-700">Jual</a>
+                <a href="#sewa" class="nav-link text-gray-700 hover:text-blue-700">Sewa</a>
+                <a href="#tentang" class="nav-link text-gray-700 hover:text-blue-700">Tentang Saya</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/6281234567890" target="_blank"
+                   class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Chat WA</span>
+                </a>
+                <button onclick="toggleMobileMenu()" 
+                        class="md:hidden text-2xl text-gray-700">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 py-6 flex flex-col gap-4 text-lg">
+                <a href="#beranda" class="py-2">Beranda</a>
+                <a href="#properti" class="py-2">Properti</a>
+                <a href="#jual" class="py-2">Jual Property</a>
+                <a href="#sewa" class="py-2">Sewa Property</a>
+                <a href="#tentang" class="py-2">Tentang Agen</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="beranda" class="hero-bg h-screen flex items-center text-white">
+        <div class="max-w-7xl mx-auto px-6 pt-20">
+            <div class="max-w-2xl">
+                <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                    Temukan Rumah Impian Anda
+                </h2>
+                <p class="text-xl mb-8 text-gray-100">
+                    Jual & Sewa properti premium di seluruh Indonesia. 
+                    Layanan agen properti profesional dengan harga terbaik.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="document.getElementById('properti').scrollIntoView({behavior:'smooth'})"
+                            class="bg-white text-blue-900 px-8 py-4 rounded-3xl font-semibold text-lg hover:bg-gray-100 transition">
+                        Lihat Properti
+                    </button>
+                    <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20konsultasi%20properti"
+                       target="_blank"
+                       class="border-2 border-white text-white px-8 py-4 rounded-3xl font-semibold text-lg hover:bg-white hover:text-blue-900 transition flex items-center gap-3">
+                        <i class="fab fa-whatsapp"></i>
+                        Hubungi Saya
+                    </a>
+                </div>
+                
+                <div class="mt-12 flex items-center gap-8 text-sm">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">✅</div>
+                        <div>
+                            <div class="font-medium">500+</div>
+                            <div class="text-xs text-gray-300">Properti Terjual</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-white/20 backdrop-blur rounded-full flex items-center justify-center">⭐</div>
+                        <div>
+                            <div class="font-medium">4.98</div>
+                            <div class="text-xs text-gray-300">Rating Klien</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEARCH BAR -->
+    <div class="max-w-5xl mx-auto -mt-10 relative z-10 px-6">
+        <div class="bg-white rounded-3xl shadow-2xl p-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-xs font-medium text-gray-500 mb-1">TIPE</label>
+                    <select class="w-full border border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                        <option>Jual</option>
+                        <option>Sewa</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-500 mb-1">LOKASI</label>
+                    <input type="text" placeholder="Jakarta, Bandung, dll" 
+                           class="w-full border border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-500 mb-1">HARGA</label>
+                    <select class="w-full border border-gray-200 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-500">
+                        <option>Rp 500jt - 1M</option>
+                        <option>Rp 1M - 3M</option>
+                        <option>Rp 3M - 10M</option>
+                        <option>&gt; Rp 10M</option>
+                    </select>
+                </div>
+                <div class="flex items-end">
+                    <button onclick="alert('Mencari properti terbaik untuk Anda... (demo)')"
+                            class="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-3xl font-semibold transition">
+                        CARI PROPERTI
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROPERTI UNGGULAN -->
+    <section id="properti" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <span class="text-blue-600 font-medium">✦ PROPERTI PILIHAN</span>
+                <h2 class="text-4xl font-bold text-gray-900 mt-2">Properti Terbaru</h2>
+            </div>
+            <a href="#" class="text-blue-700 hover:underline flex items-center gap-2 font-medium">
+                Lihat Semua <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Property 1 -->
+            <div class="property-card bg-white rounded-3xl overflow-hidden border border-gray-100">
+                <div class="relative">
+                    <img id="main-img-1" src="https://picsum.photos/id/1015/800/600" 
+                         onclick="openGallery(1)" 
+                         class="w-full h-64 object-cover cursor-pointer" alt="Rumah Mewah">
+                    <div class="absolute top-4 right-4 bg-white px-3 py-1 rounded-2xl text-xs font-semibold shadow">
+                        JUAL
+                    </div>
+                    <div onclick="openVideoModal()" 
+                         class="absolute bottom-4 left-4 bg-black/70 text-white text-xs px-4 py-2 rounded-2xl flex items-center gap-2 cursor-pointer hover:bg-black/80">
+                        <i class="fas fa-play"></i>
+                        <span>Video Tour</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold text-xl">Rumah Modern 2 Lantai</h3>
+                            <p class="text-gray-500 text-sm">Ciputat, Tangerang Selatan</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-blue-700">Rp 2,85M</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 mt-6 text-sm text-gray-600">
+                        <div>4 <i class="fas fa-bed"></i></div>
+                        <div>3 <i class="fas fa-bath"></i></div>
+                        <div>180 m²</div>
+                    </div>
+                    <button onclick="contactWA('Rumah Modern Ciputat')" 
+                            class="mt-6 w-full border border-gray-300 hover:border-blue-700 hover:text-blue-700 py-3 rounded-2xl transition">
+                        Hubungi Saya
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Property 2 -->
+            <div class="property-card bg-white rounded-3xl overflow-hidden border border-gray-100">
+                <div class="relative">
+                    <img id="main-img-2" src="https://picsum.photos/id/133/800/600" 
+                         onclick="openGallery(2)" 
+                         class="w-full h-64 object-cover cursor-pointer" alt="Apartemen">
+                    <div class="absolute top-4 right-4 bg-emerald-500 text-white px-3 py-1 rounded-2xl text-xs font-semibold shadow">
+                        SEWA
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold text-xl">Apartemen 2BR Fully Furnished</h3>
+                            <p class="text-gray-500 text-sm">Kuningan, Jakarta Selatan</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-blue-700">Rp 12jt/bln</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 mt-6 text-sm text-gray-600">
+                        <div>2 <i class="fas fa-bed"></i></div>
+                        <div>2 <i class="fas fa-bath"></i></div>
+                        <div>85 m²</div>
+                    </div>
+                    <button onclick="contactWA('Apartemen Kuningan')" 
+                            class="mt-6 w-full border border-gray-300 hover:border-blue-700 hover:text-blue-700 py-3 rounded-2xl transition">
+                        Hubungi Saya
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Property 3 -->
+            <div class="property-card bg-white rounded-3xl overflow-hidden border border-gray-100">
+                <div class="relative">
+                    <img id="main-img-3" src="https://picsum.photos/id/201/800/600" 
+                         onclick="openGallery(3)" 
+                         class="w-full h-64 object-cover cursor-pointer" alt="Villa">
+                    <div class="absolute top-4 right-4 bg-blue-700 text-white px-3 py-1 rounded-2xl text-xs font-semibold shadow">
+                        JUAL
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-semibold text-xl">Villa Cantik di Puncak</h3>
+                            <p class="text-gray-500 text-sm">Cisarua, Bogor</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold text-blue-700">Rp 4,5M</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 mt-6 text-sm text-gray-600">
+                        <div>5 <i class="fas fa-bed"></i></div>
+                        <div>4 <i class="fas fa-bath"></i></div>
+                        <div>450 m²</div>
+                    </div>
+                    <button onclick="contactWA('Villa Puncak')" 
+                            class="mt-6 w-full border border-gray-300 hover:border-blue-700 hover:text-blue-700 py-3 rounded-2xl transition">
+                        Hubungi Saya
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM INQUIRY -->
+    <section class="bg-gray-100 py-20">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="bg-white rounded-3xl p-10 shadow-xl">
+                <h2 class="text-3xl font-bold text-center mb-2">Ingin Properti Sesuai Keinginan?</h2>
+                <p class="text-center text-gray-600 mb-10">Isi form di bawah ini, saya akan bantu cari properti terbaik untuk Anda</p>
+                
+                <form id="inquiryForm" onsubmit="handleFormSubmit(event)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block mb-2 text-sm font-medium">Nama Lengkap</label>
+                            <input type="text" id="nama" required
+                                   class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-600">
+                        </div>
+                        <div>
+                            <label class="block mb-2 text-sm font-medium">Nomor WhatsApp</label>
+                            <input type="tel" id="wa" required
+                                   class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:outline-none focus:border-blue-600">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block mb-2 text-sm font-medium">Apa yang Anda Cari?</label>
+                            <textarea id="keinginan" rows="4" placeholder="Contoh: Rumah 3 kamar di Jakarta Selatan, budget max 3M, atau Apartemen sewa bulanan..." 
+                                      class="w-full border border-gray-300 rounded-3xl px-5 py-4 focus:outline-none focus:border-blue-600"></textarea>
+                        </div>
+                    </div>
+                    
+                    <button type="submit"
+                            class="mt-8 w-full bg-gradient-to-r from-blue-700 to-blue-800 text-white py-5 rounded-3xl font-semibold text-lg hover:brightness-110 transition">
+                        KIRIM PERMINTAAN
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- TENTANG SAYA -->
+    <section id="tentang" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="grid md:grid-cols-12 gap-16 items-center">
+            <div class="md:col-span-5">
+                <img src="https://picsum.photos/id/64/600/700" 
+                     class="rounded-3xl shadow-2xl" alt="Agen Properti">
+            </div>
+            <div class="md:col-span-7">
+                <h2 class="text-4xl font-bold mb-6">Halo, Saya <span class="text-blue-700">Budi Santoso</span></h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                    Agen properti berpengalaman lebih dari 8 tahun. Spesialisasi di wilayah Jabodetabek dan Puncak. 
+                    Saya membantu ratusan klien menemukan rumah idaman atau investasi properti yang menguntungkan.
+                </p>
+                
+                <div class="grid grid-cols-3 gap-8">
+                    <div>
+                        <div class="text-4xl font-bold text-blue-700">150+</div>
+                        <div class="text-sm text-gray-500">Properti Terjual/Sewa</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-blue-700">98%</div>
+                        <div class="text-sm text-gray-500">Klien Puas</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold text-blue-700">24/7</div>
+                        <div class="text-sm text-gray-500">Siap Melayani</div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 flex flex-wrap gap-4">
+                    <a href="https://wa.me/6281234567890" target="_blank" 
+                       class="flex-1 flex items-center justify-center gap-3 bg-green-500 text-white py-5 rounded-3xl font-medium hover:bg-green-600">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <div>
+                            <div class="text-sm">WhatsApp</div>
+                            <div class="text-xs">62812-3456-7890</div>
+                        </div>
+                    </a>
+                    <a href="#" class="flex-1 flex items-center justify-center gap-3 border border-gray-300 py-5 rounded-3xl font-medium hover:bg-gray-50">
+                        <i class="fab fa-instagram text-2xl"></i>
+                        <span>@budiproperti</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center gap-3 text-white mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-2xl flex items-center justify-center text-3xl">🏠</div>
+                        <div class="text-2xl font-bold">RumahImpian.id</div>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Agen properti terpercaya membantu Anda menemukan rumah, apartemen, atau villa impian.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-6">Navigasi</h4>
+                    <div class="space-y-3 text-sm">
+                        <a href="#" class="block hover:text-white">Properti Jual</a>
+                        <a href="#" class="block hover:text-white">Properti Sewa</a>
+                        <a href="#" class="block hover:text-white">Testimoni</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-6">Kontak</h4>
+                    <div class="space-y-3 text-sm">
+                        <div>📍 Jakarta Selatan</div>
+                        <div>📞 0812-3456-7890</div>
+                        <a href="https://wa.me/6281234567890" class="text-green-400 hover:text-green-300">Chat WhatsApp</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-white mb-6">Ikuti Saya</h4>
+                    <div class="flex gap-5 text-2xl">
+                        <a href="#" class="hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="hover:text-white"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-16 pt-8 text-center text-xs">
+                © 2026 RumahImpian.id - Dibuat dengan ❤️ untuk para pencari rumah impian
+            </div>
+        </div>
+    </footer>
+
+    <!-- IMAGE GALLERY MODAL -->
+    <div id="galleryModal" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center">
+        <div class="modal bg-white max-w-4xl w-full mx-4 rounded-3xl overflow-hidden">
+            <div class="flex justify-between items-center border-b px-6 py-4">
+                <h3 class="font-semibold">Galeri Properti</h3>
+                <button onclick="closeGallery()" class="text-3xl leading-none text-gray-400 hover:text-black">×</button>
+            </div>
+            <div id="galleryContent" class="p-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Dynamic images will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO MODAL -->
+    <div id="videoModal" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center">
+        <div class="modal bg-white max-w-4xl w-full mx-4 rounded-3xl overflow-hidden">
+            <div class="flex justify-between items-center border-b px-6 py-4">
+                <h3 class="font-semibold">Video Tour Properti</h3>
+                <button onclick="closeVideoModal()" class="text-3xl leading-none text-gray-400 hover:text-black">×</button>
+            </div>
+            <div class="aspect-video bg-black">
+                <iframe width="100%" height="100%" 
+                        src="https://www.youtube.com/embed/dQw4w9wgxcq" 
+                        title="Property Video Tour" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        let currentGallery = 1;
+        
+        function openGallery(id) {
+            currentGallery = id;
+            const modal = document.getElementById('galleryModal');
+            const content = document.getElementById('galleryContent');
+            content.innerHTML = '';
+            
+            const images = [
+                `https://picsum.photos/id/${100 + id}/800/600`,
+                `https://picsum.photos/id/${200 + id}/800/600`,
+                `https://picsum.photos/id/${300 + id}/800/600`,
+                `https://picsum.photos/id/${400 + id}/800/600`,
+                `https://picsum.photos/id/${500 + id}/800/600`
+            ];
+            
+            images.forEach((src, index) => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <img src="${src}" class="w-full h-48 object-cover rounded-2xl cursor-pointer hover:brightness-75 transition"
+                         onclick="this.parentElement.style.border = '3px solid #1e40af'">
+                `;
+                content.appendChild(div);
+            });
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function closeGallery() {
+            const modal = document.getElementById('galleryModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        
+        function openVideoModal() {
+            document.getElementById('videoModal').classList.remove('hidden');
+            document.getElementById('videoModal').classList.add('flex');
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        
+        function contactWA(property) {
+            const message = `Halo Budi, saya tertarik dengan ${property}. Bisa dibantu info lebih lanjut?`;
+            window.open(`https://wa.me/6281234567890?text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            alert('✅ Terima kasih! Permintaan Anda telah dikirim. Saya akan segera menghubungi Anda via WhatsApp.');
+            e.target.reset();
+        }
+        
+        // Tailwind script already loaded via CDN
+        console.log('%cWebsite RumahImpian.id siap digunakan!', 'color: #1e40af; font-size: 14px; font-weight: bold');
+        
+        // Close modals when clicking outside
+        document.addEventListener('click', function(e) {
+            const galleryModal = document.getElementById('galleryModal');
+            const videoModal = document.getElementById('videoModal');
+            
+            if (e.target === galleryModal) closeGallery();
+            if (e.target === videoModal) closeVideoModal();
+        });
+    </script>
+</body>
+</html>
