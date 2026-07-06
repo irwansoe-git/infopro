@@ -3,43 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Properti Premium - Agen Properti Mandiri</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>RumahImpian.id - Jual & Sewa Properti Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        .lightbox { display: none; }
-        .lightbox:target { display: flex; }
-        .line-clamp-3 {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;  
-            overflow: hidden; 
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --primary: #1e40af;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .property-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .property-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        
+        .gallery-img {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #1e40af;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .modal {
+            animation: modalPop 0.3s ease forwards;
+        }
+        
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- NAVBAR -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center relative">
-            <a href="#" class="text-xl font-bold text-blue-600 flex items-center gap-2">
-                <i class="fa-solid fa-house-chimney"></i> AgenProperti
-            </a>
-            <div class="hidden md:flex gap-6 font-medium">
-                <a href="#katalog" class="hover:text-blue-600 transition">Katalog Properti</a>
-                <a href="#video" class="hover:text-blue-600 transition">Tur Video</a>
-                <a href="#hubungi" class="hover:text-blue-600 transition">Hubungi Kami</a>
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white text-2xl font-bold  text-2xl">🏠</div>
+                <div>
+                    <h1 class="text-2xl font-bold tracking-tight text-blue-900">RumahImpian.id</h1>
+                    <p class="text-xs text-gray-500 -mt-1">Properti Terpercaya</p>
+                </div>
             </div>
-            <button onclick="toggleMenu()" class="md:hidden text-gray-600 focus:outline-none p-2 text-2xl cursor-pointer">
-                <i id="menu-icon" class="fa-solid fa-bars"></i>
-            </button>
-            <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white shadow-lg flex-col border-t border-gray-100 md:hidden">
-                <a href="#katalog" onclick="toggleMenu()" class="px-6 py-3 border-b border-gray-50 hover:bg-gray-50 text-gray-700 font-medium">Katalog Properti</a>
-                <a href="#video" onclick="toggleMenu()" class="px-6 py-3 border-b border-gray-50 hover:bg-gray-50 text-gray-700 font-medium">Tur Video</a>
-                <a href="#hubungi" onclick="toggleMenu()" class="px-6 py-3 hover:bg-gray-50 text-gray-700 font-medium">Hubungi Kami</a>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#katalog" class="nav-link text-gray-700 hover:text-blue-700">Properti</a>
+                <a href="#video" class="nav-link text-gray-700 hover:text-blue-700">Tur Video</a>
+                <a href="#hubungi" class="nav-link text-gray-700 hover:text-blue-700">Hubungi Kami</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/6285196447071" target="_blank"
+                   class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Chat WA</span>
+                </a>
+                <button onclick="toggleMobileMenu()" 
+                        class="md:hidden text-2xl text-gray-700">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+			<div id="lightbox" class="lightbox fixed inset-0 bg-black/90 z-50 justify-center items-center p-4 hidden" 
+				 onclick="closeLightbox()">
+				<span class="absolute top-4 right-6 text-white text-4xl font-bold cursor-pointer">&times;</span>
+				<img id="lightbox-img" src="" class="max-w-full max-h-[90vh] rounded shadow-2xl object-contain">
+			</div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 py-6 flex flex-col gap-4 text-lg">
+                <a href="#katalog" class="py-2">Properti</a>
+                <a href="#video" class="py-2">Tur Video</a>
+                <a href="#hubungi" class="py-2">Hubungi Kami</a>
             </div>
         </div>
     </nav>
 
+    <!-- HERO -->
     <header class="bg-gradient-to-r from-blue-800 to-blue-600 text-white py-12 px-4 text-center">
         <div class="max-w-4xl mx-auto">
             <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">Katalog Properti Terpercaya</h1>
@@ -53,7 +121,6 @@
             <button onclick="filterProperti('rumah')" class="filter-btn bg-white hover:bg-gray-100 text-gray-700 font-medium px-5 py-2 rounded-full border border-gray-200 transition cursor-pointer">Rumah</button>
             <button onclick="filterProperti('apartemen')" class="filter-btn bg-white hover:bg-gray-100 text-gray-700 font-medium px-5 py-2 rounded-full border border-gray-200 transition cursor-pointer">Apartemen</button>
         </div>
-
         <div id="property-list" class="space-y-12">
             </div>
     </section>
@@ -66,6 +133,14 @@
     </section>
 
     <section id="hubungi" class="max-w-3xl mx-auto px-4 py-16">
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/6285196447071" target="_blank"
+                   class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition">
+                    <i class="fab fa-whatsapp"></i> 
+                    <span>Chat WA</span>
+                </a>
+            </div>
+
         <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
             <h3 class="text-2xl font-bold mb-6 text-center">Formulir Pertanyaan & Survei</h3>
             <form onsubmit="kirimFormKeWhatsapp(event)">
@@ -86,11 +161,6 @@
         </div>
     </section>
 
-    <div id="lightbox" class="lightbox fixed inset-0 bg-black/90 z-50 justify-center items-center p-4" onclick="closeLightbox()">
-        <span class="absolute top-4 right-6 text-white text-4xl font-bold cursor-pointer">&times;</span>
-        <img id="lightbox-img" src="" class="max-w-full max-h-[90vh] rounded shadow-2xl object-contain">
-    </div>
-
     <script>
         // DATA PROPERTI DENGAN FORMAT STRUKTUR GAMBAR YANG MUDAH
         const daftarProperti = [
@@ -98,47 +168,130 @@
                 id: 1, 
                 tipe: 'rumah', 
                 status: 'dijual', 
-                judul: 'Apartemen Atlanta - Margonda', 
-                harga: 'Rp 1.500.000.000', 
-                spek: '1 KT | 1 KM | 45m²', 
-                alamat: 'Jl. Raya Margonda No. 28, Pondok Cina Lt: 10',
-                deskripsi: 'Apartemen dijual jarang ada, Lokasi super strategis: apartemen terkoneksi Rumah Sakit Bunda, Berdekatan dengan kampus ternama UI, 
-                    Gunadharma, Mall Margonda, Keamanan 24 jam, Full furnish, Memakai cat Duco terbaik, Fasilitas: wifi, kolam renang, ruang pertemuan.',
+                judul: 'Apartemen ATLANTA Residence, Margonda Depok', 
+                harga: 'Rp 1.500.000.000,-', 
+                spek: '1 KT | 1 KM | 45 m²', 
+                moto: 'Apartemen dijual jarang ada', 
+                alamat: 'Jl. Raya Margonda No. 28, Pondok Cina Lt: 10 Corner/ Hook',
+                deskripsi: 'Terkoneksi RS Bunda, Dipusat kota Depok, Pemandangan 2 sisi kaca menghadap kota Depok, dekat dengan Mall Margonda, kampus2 ternama UI, Gunadharma, Keamanan 24 jam, Full furnish, Memakai cat Duco terbaik, Fasilitas: wifi, kolam renang, ruang pertemuan.',
                 // Masukkan Link Google Drive Anda yang sudah diubah ke rumus sakti (=s800) di sini
                 imgUtama: 'images/atlanta/atlantacomb.png',
                 // Masukkan 5 atau lebih gambar pendukung di dalam baris array ini
                 gambarPendukung: [
-                    'images/atlanta/atlantakt1.jpg',
-                    'images/atlanta/atlantakt2.jpeg', 
+                    'images/atlanta/atlantakt1.jpg',                     'images/atlanta/atlantakt2.jpeg', 
                     'images/atlanta/atlantakt3laci.jpeg', 
                     'images/atlanta/atlantart1.jpeg', 
                     'images/atlanta/atlantart2.jpeg',  
                     'images/atlanta/atlantakm.jpeg',  
-                    'images/atlanta/atlantakoridor.jpeg',  
-                    'images/atlanta/atlantatipe45.jpeg', 
+                    'images/atlanta/atlantacomb.png',  
+                    'images/atlanta/atlantatipe45.jpg', 
                     'images/atlanta/atlantaroom.jpg', 
-                    'images/atlanta/atlantapool1.jpeg'  // Contoh Foto Kolam Renang                    
+                    'images/atlanta/atlantapool1.jpg'  // Contoh Foto Kolam Renang                    
+
                 ]
             },
             { 
                 id: 2, 
                 tipe: 'apartemen', 
                 status: 'disewakan', 
-                judul: 'Apartemen Dave', 
-                harga: 'Rp 400.000.000', 
-                spek: '1 KT | 1 KM | Studio', 
+                judul: 'DAVE Apartment Lt. 10, Beji Depok', 
+                harga: 'Rp 400.000.000,-', 
+                spek: '1 KT | 1 KM | 22,64 m2 | Studio', 
+                moto: 'Dekat kampus UI, Harga Murah', 
                 alamat: 'Jl. Palikalikarya Kukusan, Beji, Depok',
-                deskripsi: 'Kondisi full furnished rapi, siap huni langsung bawa baju. Sudah termasuk AC, Smart TV, kulkas, dan kitchen set.',
+                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
                 imgUtama: 'images/dave/davegedung.jpg',
                 gambarPendukung: [
-                    'images/dave/davekt1.jpg',
-                    'images/dave/davekt2.jpg',
-                    'images/dave/daveinvoice.jpg',
-                    'images/dave/davelobby.jpg',
-                    'images/dave/daveindomaret.jpg',
-                    'images/dave/davefasilitas.jpg'
+                    'images/dave/davekt1.jpeg',
+                    'images/dave/davekt2.jpeg',
+                    'images/dave/daveinvoice.jpeg',
+                    'images/dave/davefasilitas.jpg',
+                    'images/dave/davelobby.jpeg',
+                    'images/dave/daveindomaret.jpeg'
                 ]
-            }
+            },
+            { 
+                id: 3, 
+                tipe: 'apartemen', 
+                status: 'dijual', 
+                judul: 'LRT CITY Sentul, Lt: 21 Corner/Hook', 
+                harga: 'Rp 1.000.000.000,-', 
+                spek: '1 KTU | 1 KT | 1 KM | 62,50 m2 | 2 BR', 
+                moto: 'Apartemen 2 BR', 
+                alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
+                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
+                imgUtama: 'images/lrt/lrt2161/lrtgedung.jpg',
+                gambarPendukung: [
+                    'images/lrt/lrt2161/lrtgedung.jpg',
+                    'images/lrt/lrt2161/lrt2161ktus.jpeg',
+                    'images/lrt/lrt2161/lrt2161ktu1.jpeg',
+                    'images/lrt/lrt2161/lrt2161ktlm.jpeg',
+                    'images/lrt/lrt2161/lrt2161kta1.jpeg',
+                    'images/lrt/lrt2161/lrt2161kta2.jpeg',
+                    'images/lrt/lrt2161/lrt2161rt1.jpeg',
+                    'images/lrt/lrt2161/lrt2161rt2.jpeg',
+                    'images/lrt/lrt2161/lrt2161dapur.jpeg',
+                    'images/lrt/lrt2161/lrt2161koridor2.jpeg',
+                    'images/lrt/lrt2161/lrt2161koridor1.jpeg',
+                    'images/lrt/lrt2161/lrt2161wkm.jpeg'
+					]
+            },
+            { 
+                id: 4, 
+                tipe: 'apartemen', 
+                status: 'dijual', 
+                judul: 'LRT CITY Sentul, Lt: 10 (1)', 
+                harga: 'Rp 500.000.000,-', 
+                spek: '1 KT | 1 KM | 27,50 m2 | Studio', 
+                moto: 'Apartemen Studio', 
+                alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
+                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
+                imgUtama: 'images/lrt/lrt1019/lrt1019kt1.jpeg',
+                gambarPendukung: [
+                    'images/lrt/lrt1019/lrt1019kt1.jpeg',
+                    'images/lrt/lrt1019/lrt1019kt2.jpeg',
+                    'images/lrt/lrt1019/lrt1019rt.jpeg',
+                    'images/lrt/lrt1019/lrt1019dapur.jpeg',
+                    'images/lrt/lrt2161/lrtgedung.jpg'
+					]
+            },
+            { 
+                id: 5, 
+                tipe: 'apartemen', 
+                status: 'dijual', 
+                judul: 'LRT CITY Sentul, Lt: 10 (2)', 
+                harga: 'Rp 500.000.000,-', 
+                spek: '1 KT | 1 KM | 27,50 m2 | Studio', 
+                moto: 'Apartemen Studio', 
+                alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
+                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
+                imgUtama: 'images/lrt/lrt1020/lrt1020kt1.jpeg',
+                gambarPendukung: [
+                    'images/lrt/lrt1020/lrt1020kt1.jpeg',
+                    'images/lrt/lrt1020/lrt1020kt2.jpeg',
+                    'images/lrt/lrt1020/lrt1020kt3.jpeg',
+                    'images/lrt/lrt2161/lrtgedung.jpg'
+					]
+            },
+            { 
+                id: 6, 
+                tipe: 'apartemen', 
+                status: 'dijual', 
+                judul: 'LRT CITY Sentul, Lt: 30', 
+                harga: 'Rp 450.000.000,-', 
+                spek: '1 KT | 1 KM | 22,7 m2 | Studio', 
+                moto: 'Apartemen Studio', 
+                alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
+                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
+                imgUtama: 'images/lrt/lrt1020/lrt1020kt1.jpeg',
+                gambarPendukung: [
+                    'images/lrt/lrt3038/lrt3038kt1.jpeg',
+                    'images/lrt/lrt3038/lrt3038kt2.jpeg',
+                    'images/lrt/lrt3038/lrt3038kt3.jpeg',
+                    'images/lrt/lrt3038/lrt3038ktv.jpeg',
+                    'images/lrt/lrt2161/lrtgedung.jpg'
+					]
+            },
         ];
 
         // RENDERING KATALOG KE HALAMAN WEB
@@ -195,12 +348,13 @@
                                 <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 mb-4">
                                     <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Spesifikasi Unit:</p>
                                     <p class="text-sm font-semibold text-gray-700"><i class="fa-solid fa-bed text-blue-500 mr-1"></i> ${item.spek}</p>
+                                    <p class="text-sm font-semibold text-gray-700"> ${item.moto}</p>
                                 </div>
 
                                 <div class="pt-2">
-                                    <p id="desc-short-${item.id}" class="text-gray-600 text-xs leading-relaxed line-clamp-3">${item.deskripsi}</p>
+                                    <p id="desc-short-${item.id}" class="text-gray-600 text-xs leading-relaxed line-clamp-3"></p>
                                     <p id="desc-full-${item.id}" class="hidden text-gray-600 text-xs leading-relaxed bg-blue-50/40 p-3 rounded-lg border border-blue-100/50">${item.deskripsi}</p>
-                                    <button id="btn-read-${item.id}" onclick="toggleDeskripsi(${item.id})" class="text-blue-600 hover:text-blue-800 font-bold text-xs mt-1 cursor-pointer inline-block">Baca Selengkapnya <i class="fa-solid fa-chevron-down text-[9px]"></i></button>
+                                    <button id="btn-read-${item.id}" onclick="toggleDeskripsi(${item.id})" class="text-blue-600 hover:text-blue-800 font-bold text-xs mt-1 cursor-pointer inline-block">Selengkapnya <i class="fa-solid fa-chevron-down text-[9px]"></i></button>
                                 </div>
                             </div>
 
@@ -214,6 +368,13 @@
                 listContainer.innerHTML += card;
             });
         }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        let currentGallery = 1;
 
         // FUNGSI KETIKA GAMBAR PENDUKUNG DI-HOVER (DISENTUH)
         function gantiPreview(id, urlBaru) {
@@ -233,10 +394,10 @@
             const btn = document.getElementById(`btn-read-${id}`);
             if (fullText.classList.contains('hidden')) {
                 fullText.classList.remove('hidden'); shortText.classList.add('hidden');
-                btn.innerHTML = 'Sembunyikan <i class="fa-solid fa-chevron-up text-[9px]"></i>';
+                btn.innerHTML = 'Sembunyikan <i class="fa-solid fa-chevron-up text-[12px]"></i>';
             } else {
                 fullText.classList.add('hidden'); shortText.classList.remove('hidden');
-                btn.innerHTML = 'Baca Selengkapnya <i class="fa-solid fa-chevron-down text-[9px]"></i>';
+                btn.innerHTML = 'Selengkapnya <i class="fa-solid fa-chevron-down text-[12px]"></i>';
             }
         }
 
@@ -268,7 +429,7 @@
             const unit = document.getElementById('form-properti-pilihan').value;
             const pesan = document.getElementById('form-pesan').value;
             const text = `Halo, saya mengisi form di web.%0A%0A*Nama:* ${nama}%0A*Unit:* ${unit}%0A*Pesan:* ${pesan}`;
-            window.open(`https://wa.me/628123456789?text=${text}`, '_blank');
+            window.open(`https://wa.me/6285196447071?text=${text}`, '_blank');
         }
 
         // Jalankan katalog
