@@ -7,66 +7,41 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         
-        :root {
-            --primary: #1e40af;
-        }
-        
-        .hero-bg {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://picsum.photos/id/1015/2000/1200');
-            background-size: cover;
-            background-position: center;
-        }
+        body { font-family: 'Inter', sans-serif; }
         
         .property-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
         .property-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
         }
         
-        .gallery-img {
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
+        .nav-link { position: relative; }
         .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #1e40af;
+            content: ''; position: absolute; width: 0; height: 2px;
+            bottom: -4px; left: 0; background-color: #1e40af;
             transition: width 0.3s ease;
         }
+        .nav-link:hover:after { width: 100%; }
         
-        .nav-link:hover:after {
-            width: 100%;
+        .slide-fade {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
         }
-        
-        .modal {
-            animation: modalPop 0.3s ease forwards;
-        }
-        
-        @keyframes modalPop {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
+        .slide-fade.active {
+            opacity: 1;
         }
     </style>
 </head>
-<body class="font-sans bg-gray-50 text-gray-800">
-    <!-- NAVBAR -->
+<body class="bg-gray-50 text-gray-800">
+
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white text-2xl font-bold  text-2xl">🏠</div>
+                <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white text-2xl font-bold">🏠</div>
                 <div>
                     <h1 class="text-2xl font-bold tracking-tight text-blue-900">RumahImpian.id</h1>
                     <p class="text-xs text-gray-500 -mt-1">Properti Terpercaya</p>
@@ -75,108 +50,176 @@
             
             <div class="hidden md:flex items-center gap-8 text-sm font-medium">
                 <a href="#katalog" class="nav-link text-gray-700 hover:text-blue-700">Properti</a>
+                <a href="#agen" class="nav-link text-gray-700 hover:text-blue-700">Top Agen</a>
                 <a href="#video" class="nav-link text-gray-700 hover:text-blue-700">Tur Video</a>
+                <a href="#peta" class="nav-link text-gray-700 hover:text-blue-700">Lokasi Peta</a>
                 <a href="#hubungi" class="nav-link text-gray-700 hover:text-blue-700">Hubungi Kami</a>
             </div>
             
             <div class="flex items-center gap-4">
-                <a href="https://wa.me/6285196447071" target="_blank"
-                   class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>Chat WA</span>
+                <a href="https://wa.me/6285196447071" target="_blank" class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition">
+                    <i class="fab fa-whatsapp"></i><span>Chat WA</span>
                 </a>
-                <button onclick="toggleMobileMenu()" 
-                        class="md:hidden text-2xl text-gray-700">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-gray-700"><i class="fas fa-bars"></i></button>
             </div>
-			<div id="lightbox" class="lightbox fixed inset-0 bg-black/90 z-50 justify-center items-center p-4 hidden" 
-				 onclick="closeLightbox()">
-				<span class="absolute top-4 right-6 text-white text-4xl font-bold cursor-pointer">&times;</span>
-				<img id="lightbox-img" src="" class="max-w-full max-h-[90vh] rounded shadow-2xl object-contain">
-			</div>
         </div>
         
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
-            <div class="px-6 py-6 flex flex-col gap-4 text-lg">
-                <a href="#katalog" class="py-2">Properti</a>
-                <a href="#video" class="py-2">Tur Video</a>
-                <a href="#hubungi" class="py-2">Hubungi Kami</a>
-            </div>
+        <div id="mobileMenu" class="hidden bg-white border-t px-6 py-4 flex flex-col gap-3 md:hidden">
+            <a href="#katalog" onclick="toggleMobileMenu()">Properti</a>
+            <a href="#agen" onclick="toggleMobileMenu()">Top Agen</a>
+            <a href="#video" onclick="toggleMobileMenu()">Tur Video</a>
+            <a href="#peta" onclick="toggleMobileMenu()">Lokasi Peta</a>
+            <a href="#hubungi" onclick="toggleMobileMenu()">Hubungi Kami</a>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <header class="bg-gradient-to-r from-blue-800 to-blue-600 text-white py-12 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <h1 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">Katalog Properti Terpercaya</h1>
-            <p class="text-base md:text-xl opacity-95">Klik pada gambar utama maupun gambar pendukung untuk memperbesar foto ruangan.</p>
+    <header class="relative h-[360px] md:h-[460px] flex items-center justify-center overflow-hidden text-white">
+        <div id="hero-slider" class="absolute inset-0 z-0 bg-slate-900"></div>
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+        <div class="relative z-20 max-w-4xl px-6 text-center space-y-2">
+            <p class="text-xs md:text-sm font-black uppercase tracking-widest text-orange-400 drop-shadow">INVESTASI AMAN & TERPERCAYA</p>
+            <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight drop-shadow-xl">Temukan Hunian & Aset Terbaik</h1>
+            <p class="text-xs md:text-base opacity-90 font-light max-w-2xl mx-auto">Legalitas prima dipandu oleh jajaran profesional.</p>
         </div>
     </header>
 
-    <section id="katalog" class="max-w-6xl mx-auto px-4 py-16">
-        <div class="flex flex-wrap justify-center gap-2 mb-10">
-            <button onclick="filterProperti('semua')" class="filter-btn bg-blue-600 text-white font-medium px-5 py-2 rounded-full shadow transition cursor-pointer">Semua</button>
-            <button onclick="filterProperti('rumah')" class="filter-btn bg-white hover:bg-gray-100 text-gray-700 font-medium px-5 py-2 rounded-full border border-gray-200 transition cursor-pointer">Rumah</button>
-            <button onclick="filterProperti('apartemen')" class="filter-btn bg-white hover:bg-gray-100 text-gray-700 font-medium px-5 py-2 rounded-full border border-gray-200 transition cursor-pointer">Apartemen</button>
-        </div>
-        <div id="property-list" class="space-y-12">
+    <section class="max-w-6xl mx-auto px-4 -mt-10 relative z-30 space-y-6">
+        <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+            <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2"><i class="fa-solid fa-magnifying-glass text-blue-600"></i> Cari Properti Impian</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Jenis Properti</label>
+                    <select id="search-tipe" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 text-sm">
+                        <option value="semua">Semua Tipe</option>
+                        <option value="rumah">Rumah</option>
+                        <option value="apartemen">Apartemen</option>
+                        <option value="tanah">Tanah / Kavling</option>
+                        <option value="pabrik">Pabrik</option>
+                        <option value="gedung">Gedung</option>
+                        <option value="hotel">Hotel</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Status</label>
+                    <select id="search-status" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 text-sm">
+                        <option value="semua">Semua Status</option>
+                        <option value="dijual">Dijual</option>
+                        <option value="disewakan">Disewa</option>
+                        <option value="terjual">Terjual</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Wilayah / Lokasi</label>
+                    <select id="search-wilayah" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 text-sm">
+                        <option value="semua">Semua Lokasi</option>
+                        <option value="depok">Indonesia, Jawa Barat, Depok, Beji/Pondok Cina</option>
+                        <option value="bogor">Indonesia, Jawa Barat, Bogor, Babakan Madang</option>
+                    </select>
+                </div>
             </div>
+            <div class="mt-4 flex justify-end">
+                <button onclick="jalankanPencarianKatalog()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl shadow-md text-sm transition flex items-center gap-2 cursor-pointer">
+                    <i class="fa-solid fa-sliders"></i> Terapkan Filter Pencarian
+                </button>
+            </div>
+        </div>
+
+        <div class="bg-blue-900 p-6 rounded-2xl shadow-xl text-white">
+            <h3 class="text-base font-bold mb-3 flex items-center gap-2"><i class="fa-solid fa-user-tie text-orange-400"></i> Cari Agen Resmi Terpercaya</h3>
+            <div class="flex gap-2">
+                <input type="text" id="input-cari-agen" placeholder="Ketik nama agen di sini... (Contoh: Budi, Sinta, Ahmad)" class="flex-1 p-3 text-gray-800 rounded-xl text-sm focus:outline-none">
+                <button onclick="filterCariNamaAgen()" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-5 rounded-xl text-sm transition cursor-pointer">Cari</button>
+            </div>
+        </div>
     </section>
 
-    <section id="video" class="bg-gray-100 py-12 px-4 text-center">
-        <h2 class="text-2xl font-bold mb-6">Virtual Video Tour</h2>
-        <div class="max-w-3xl mx-auto relative pb-[56.25%] h-0 rounded-xl overflow-hidden shadow-lg bg-black">
+    <main id="katalog" class="max-w-6xl mx-auto px-4 py-12">
+        <h2 class="text-2xl font-black text-gray-900 mb-6 flex items-center gap-2"><span>✨</span> Rekomendasi Aset Unggulan</h2>
+        <div id="property-list" class="space-y-10"></div>
+    </main>
+
+    <section id="agen" class="bg-white py-16 border-t border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl font-extrabold text-blue-950">Jajaran 10 Top Agen Profesional</h2>
+                <p class="text-sm text-gray-500 mt-1">Siap membantu transaksi properti Anda dengan aman, cepat, dan transparan.</p>
+            </div>
+            <div id="container-top-agen" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"></div>
+        </div>
+    </section>
+
+    <section id="video" class="bg-gray-100 py-16 px-4 text-center">
+        <h2 class="text-2xl font-extrabold mb-6 text-blue-950">Virtual Video Tour</h2>
+        <div class="max-w-3xl mx-auto relative pb-[56.25%] h-0 rounded-xl overflow-hidden shadow-xl bg-black">
             <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
-    <section id="hubungi" class="max-w-3xl mx-auto px-4 py-16">
-            <div class="flex items-center gap-4">
-                <a href="https://wa.me/6285196447071" target="_blank"
-                   class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition">
-                    <i class="fab fa-whatsapp"></i> 
-                    <span>Chat WA</span>
+    <section id="peta" class="max-w-6xl mx-auto px-4 py-16">
+        <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+            <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-map-location-dot text-blue-600"></i> Kantor & Wilayah Layanan Kami
+            </h2>
+            <div class="w-full h-96 rounded-xl overflow-hidden shadow-inner border border-gray-200 mb-4">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126881.72146522507!2d106.74666324204481!3d-6.387569932126297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ec0836937e33%3A0x301576d140b56e0!2sDepok%2C%20Kota%20Depok%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" class="w-full h-full border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="flex flex-wrap justify-between items-center gap-3 bg-gray-50 p-4 rounded-xl">
+                <span class="text-xs text-gray-600 font-medium"><i class="fa-solid fa-circle-info text-blue-500 mr-1"></i> Klik tombol di samping kanan untuk membuka rute navigasi satelit langsung melalui link resmi Google Maps.</span>
+                <a href="maps.google.com" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg transition shadow-xs inline-flex items-center gap-2">
+                    <i class="fa-solid fa-location-arrow"></i> Buka Google Maps Resmi
                 </a>
             </div>
+        </div>
+    </section>
 
+    <section id="hubungi" class="max-w-3xl mx-auto px-4 py-8 space-y-8">
         <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-            <h3 class="text-2xl font-bold mb-6 text-center">Formulir Pertanyaan & Survei</h3>
-            <form onsubmit="kirimFormKeWhatsapp(event)">
+            <h3 class="text-2xl font-bold mb-6 text-center text-blue-950">Formulir Pertanyaan & Survei</h3>
+            <form onsubmit="kirimFormKeWhatsApp(event)">
                 <div class="mb-4">
                     <label class="block text-sm font-semibold mb-2">Nama Anda</label>
-                    <input type="text" id="form-nama" required class="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="text" id="form-nama" required class="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none">
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-semibold mb-2">Unit Properti</label>
-                    <select id="form-properti-pilihan" class="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"></select>
+                    <select id="form-properti-pilihan" class="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"></select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-semibold mb-2">Pesan</label>
-                    <textarea id="form-pesan" required rows="4" class="w-full p-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <textarea id="form-pesan" required rows="4" class="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg cursor-pointer">Kirim ke WhatsApp</button>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg transition cursor-pointer">Kirim ke WhatsApp</button>
             </form>
         </div>
     </section>
 
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 flex justify-center items-center p-4 hidden">
+        <button onclick="closeLightbox()" class="absolute top-4 right-6 text-white text-5xl font-light hover:text-gray-300 transition z-50">&times;</button>
+        
+        <button onclick="geserGambarMundur(event)" class="absolute left-4 md:left-8 bg-white/10 hover:bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl transition select-none z-50">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="relative max-w-4xl max-h-[85vh] flex flex-col items-center">
+            <img id="lightbox-img" src="" class="max-w-full max-h-[80vh] rounded shadow-2xl object-contain">
+            <p id="lightbox-counter" class="text-white/70 text-xs mt-3 bg-black/40 px-3 py-1 rounded-full tracking-wider font-medium"></p>
+        </div>
+
+        <button onclick="geserGambarMaju(event)" class="absolute right-4 md:right-8 bg-white/10 hover:bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl transition select-none z-50">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
     <script>
-        // DATA PROPERTI DENGAN FORMAT STRUKTUR GAMBAR YANG MUDAH
         const daftarProperti = [
             { 
-                id: 1, 
-                tipe: 'rumah', 
-                status: 'dijual', 
-                judul: 'Apartemen ATLANTA Residence, Margonda Depok', 
-                harga: 'Rp 1.500.000.000,-', 
-                spek: '1 KT | 1 KM | 45 m²', 
-                moto: 'Apartemen dijual jarang ada', 
+                id: 1, tipe: 'rumah', status: 'dijual', wilayah: 'depok',
+                judul: 'Apartemen ATLANTA Residence, Margonda Depok', harga: 'Rp 1.500.000.000,-', 
+                spek: '1 KT | 1 KM | 45 m²', moto: 'Apartemen dijual jarang ada', 
                 alamat: 'Jl. Raya Margonda No. 28, Pondok Cina Lt: 10 Corner/ Hook',
                 deskripsi: 'Terkoneksi RS Bunda, Dipusat kota Depok, Pemandangan 2 sisi kaca menghadap kota Depok, dekat dengan Mall Margonda, kampus2 ternama UI, Gunadharma, Keamanan 24 jam, Full furnish, Memakai cat Duco terbaik, Fasilitas: wifi, kolam renang, ruang pertemuan.',
-                // Masukkan Link Google Drive Anda yang sudah diubah ke rumus sakti (=s800) di sini
+                mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.220565717389!2d106.83247557599651!3d-6.365494962271993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eda4b5af834b%3A0xcd4b922e1696bb15!2sAtlanta%20Residences%20Depok!5e0!3m2!1sid!2sid!4v1783679047127!5m2!1sid!2sid',
                 imgUtama: 'images/atlanta/atlantacomb.png',
-                // Masukkan 5 atau lebih gambar pendukung di dalam baris array ini
                 gambarPendukung: [
                     'images/atlanta/atlantakt1.jpg',                     'images/atlanta/atlantakt2.jpeg', 
                     'images/atlanta/atlantakt3laci.jpeg', 
@@ -187,20 +230,16 @@
                     'images/atlanta/atlantatipe45.jpg', 
                     'images/atlanta/atlantaroom.jpg', 
                     'images/atlanta/atlantapool1.jpg'  // Contoh Foto Kolam Renang                    
-
                 ]
             },
             { 
-                id: 2, 
-                tipe: 'apartemen', 
-                status: 'disewakan', 
-                judul: 'DAVE Apartment Lt. 10, Beji Depok', 
-                harga: 'Rp 400.000.000,-', 
-                spek: '1 KT | 1 KM | 22,64 m2 | Studio', 
-                moto: 'Dekat kampus UI, Harga Murah', 
+                id: 2, tipe: 'apartemen', status: 'disewakan', wilayah: 'depok',
+                judul: 'DAVE Apartment Lt. 10, Beji Depok', harga: 'Rp 400.000.000,-', 
+                spek: '1 KT | 1 KM | 22,64 m2 | Studio', moto: 'Dekat kampus UI, Harga Murah', 
                 alamat: 'Jl. Palikalikarya Kukusan, Beji, Depok',
                 deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
                 imgUtama: 'images/dave/davegedung.jpg',
+                mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.196506591642!2d106.81429457599663!3d-6.368610462301306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69efd198f3a3ff%3A0x12765898998997dd!2sDAVE%20Apartment!5e0!3m2!1sid!2sid!4v1783679175070!5m2!1sid!2sid',
                 gambarPendukung: [
                     'images/dave/davekt1.jpeg',
                     'images/dave/davekt2.jpeg',
@@ -211,16 +250,13 @@
                 ]
             },
             { 
-                id: 3, 
-                tipe: 'apartemen', 
-                status: 'dijual', 
-                judul: 'LRT CITY Sentul, Lt: 21 Corner/Hook', 
-                harga: 'Rp 1.000.000.000,-', 
-                spek: '1 KTU | 1 KT | 1 KM | 62,50 m2 | 2 BR', 
-                moto: 'Apartemen 2 BR', 
+                id: 3, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
+                judul: 'LRT CITY Sentul, Lt: 21 Corner/Hook', harga: 'Rp 1.000.000.000,-', 
+                spek: '1 KTU | 1 KT | 1 KM | 62,50 m2 | 2 BR', moto: 'Apartemen 2 BR', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
                 deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
                 imgUtama: 'images/lrt/lrt2161/lrtgedung.jpg',
+                mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
                 gambarPendukung: [
                     'images/lrt/lrt2161/lrtgedung.jpg',
                     'images/lrt/lrt2161/lrt2161ktus.jpeg',
@@ -234,106 +270,114 @@
                     'images/lrt/lrt2161/lrt2161koridor2.jpeg',
                     'images/lrt/lrt2161/lrt2161koridor1.jpeg',
                     'images/lrt/lrt2161/lrt2161wkm.jpeg'
-					]
+                ]
             },
             { 
-                id: 4, 
-                tipe: 'apartemen', 
-                status: 'dijual', 
-                judul: 'LRT CITY Sentul, Lt: 10 (1)', 
-                harga: 'Rp 500.000.000,-', 
-                spek: '1 KT | 1 KM | 27,50 m2 | Studio', 
-                moto: 'Apartemen Studio', 
+                id: 4, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
+                judul: 'LRT CITY Sentul, Lt: 10 (1)', harga: 'Rp 500.000.000,-', 
+                spek: '1 KT | 1 KM | 27,50 m2 | Studio', moto: 'Apartemen Studio', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
                 deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
                 imgUtama: 'images/lrt/lrt1019/lrt1019kt1.jpeg',
+                mapLink: 'https://maps.google.com/maps?q=Jl.%20Ampera%20Raya%20No.14,%20Jakarta%20Selatan&t=&z=13&ie=UTF8&iwloc=&output=embed',
                 gambarPendukung: [
                     'images/lrt/lrt1019/lrt1019kt1.jpeg',
                     'images/lrt/lrt1019/lrt1019kt2.jpeg',
                     'images/lrt/lrt1019/lrt1019rt.jpeg',
                     'images/lrt/lrt1019/lrt1019dapur.jpeg',
                     'images/lrt/lrt2161/lrtgedung.jpg'
-					]
+                ]
             },
             { 
-                id: 5, 
-                tipe: 'apartemen', 
-                status: 'dijual', 
-                judul: 'LRT CITY Sentul, Lt: 10 (2)', 
-                harga: 'Rp 500.000.000,-', 
-                spek: '1 KT | 1 KM | 27,50 m2 | Studio', 
-                moto: 'Apartemen Studio', 
+                id: 5, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
+                judul: 'LRT CITY Sentul, Lt: 10 (2)', harga: 'Rp 500.000.000,-', 
+                spek: '1 KT | 1 KM | 27,50 m2 | Studio', moto: 'Apartemen Studio', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
                 deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
                 imgUtama: 'images/lrt/lrt1020/lrt1020kt1.jpeg',
+                mapLink: 'https://maps.google.com/maps?q=Jl.%20Ampera%20Raya%20No.14,%20Jakarta%20Selatan&t=&z=13&ie=UTF8&iwloc=&output=embed',
                 gambarPendukung: [
                     'images/lrt/lrt1020/lrt1020kt1.jpeg',
                     'images/lrt/lrt1020/lrt1020kt2.jpeg',
                     'images/lrt/lrt1020/lrt1020kt3.jpeg',
                     'images/lrt/lrt2161/lrtgedung.jpg'
-					]
+                ]
             },
             { 
-                id: 6, 
-                tipe: 'apartemen', 
-                status: 'dijual', 
-                judul: 'LRT CITY Sentul, Lt: 30', 
-                harga: 'Rp 450.000.000,-', 
-                spek: '1 KT | 1 KM | 22,7 m2 | Studio', 
-                moto: 'Apartemen Studio', 
+                id: 6, tipe: 'apartemen', status: 'terjual', wilayah: 'bogor',
+                judul: 'LRT CITY Sentul, Lt: 30', harga: 'Rp 450.000.000,-', 
+                spek: '1 KT | 1 KM | 22,7 m2 | Studio', moto: 'Apartemen Studio', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
                 deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
                 imgUtama: 'images/lrt/lrt3038/lrt3038kt1.jpeg',
+                mapLink: 'https://maps.google.com/maps?q=Jl.%20Ampera%20Raya%20No.14,%20Jakarta%20Selatan&t=&z=13&ie=UTF8&iwloc=&output=embed',
                 gambarPendukung: [
                     'images/lrt/lrt3038/lrt3038kt1.jpeg',
                     'images/lrt/lrt3038/lrt3038kt2.jpeg',
                     'images/lrt/lrt3038/lrt3038kt3.jpeg',
                     'images/lrt/lrt3038/lrt3038ktv.jpeg',
                     'images/lrt/lrt2161/lrtgedung.jpg'
-					]
-            },
+                ]
+            }
         ];
 
-        // RENDERING KATALOG KE HALAMAN WEB
+        // 4. DATA 10 TOP AGEN
+        const dataTopAgen = [
+            { nama: "Budi Santoso", foto: "https://i.pravatar.cc/150?img=33", telp: "6285196447071" },
+            { nama: "Sinta Permata", foto: "https://i.pravatar.cc/150?img=47", telp: "6285196447071" },
+            { nama: "Ahmad Fauzi", foto: "https://i.pravatar.cc/150?img=12", telp: "6285196447071" },
+            { nama: "Dewi Lestari", foto: "https://i.pravatar.cc/150?img=44", telp: "6285196447071" },
+            { nama: "Rian Hidayat", foto: "https://i.pravatar.cc/150?img=60", telp: "6285196447071" },
+            { nama: "Andi Wijaya", foto: "https://i.pravatar.cc/150?img=68", telp: "6285196447071" },
+            { nama: "Siti Rahma", foto: "https://i.pravatar.cc/150?img=49", telp: "6285196447071" },
+            { nama: "Hendra Wijaya", foto: "https://i.pravatar.cc/150?img=11", telp: "6285196447071" },
+            { nama: "Maya Indah", foto: "https://i.pravatar.cc/150?img=26", telp: "6285196447071" },
+            { nama: "Rudi Hermawan", foto: "https://i.pravatar.cc/150?img=57", telp: "6285196447071" }
+        ];
+
+        // ARRAY JALUR GLOBAL LIGHTBOX SLIDER (ID SAMA)
+        let arrayFotoLightboxMekanis = [];
+        let indeksFotoAktifSekarang = 0;
+
         function tampilkanKatalog(properti) {
             const listContainer = document.getElementById('property-list');
             const selectEl = document.getElementById('form-properti-pilihan');
-            
             listContainer.innerHTML = '';
-            selectEl.innerHTML = '<option value="Umum">Tanya Umum / Belum Memilih Unit</option>';
             
-            properti.forEach(item => {
-                // Daftarkan ke select form
-                const opt = document.createElement('option');
-                opt.value = item.judul;
-                opt.innerHTML = `[${item.tipe.toUpperCase()}] ${item.judul}`;
-                selectEl.appendChild(opt);
+            if(selectEl) selectEl.innerHTML = '<option value="Umum">Tanya Umum / Belum Memilih Unit</option>';
+            
+            if(properti.length === 0) {
+                listContainer.innerHTML = `<div class="p-12 text-center bg-white rounded-xl border border-gray-100 text-gray-400 font-medium">Properti yang Anda cari tidak ditemukan. Hubungi kami untuk opsi pencarian lain.</div>`;
+                return;
+            }
 
-                // Buat HTML untuk deretan 5 gambar pendukung
+            properti.forEach(item => {
+                if(selectEl) {
+                    const opt = document.createElement('option');
+                    opt.value = item.judul;
+                    opt.innerHTML = `[${item.tipe.toUpperCase()}] ${item.judul}`;
+                    selectEl.appendChild(opt);
+                }
+
                 let htmlThumbs = '';
-                item.gambarPendukung.forEach(urlFoto => {
+                item.gambarPendukung.forEach((urlFoto) => {
                     htmlThumbs += `
-                        <div class="relative group aspect-video overflow-hidden rounded-lg border border-gray-200 shadow-xs">
-                            <img src="${urlFoto}" 
-                                 class="w-full h-full object-cover cursor-zoom-in hover:scale-105 transition duration-300" 
+                        <div class="relative aspect-video overflow-hidden rounded-lg border border-gray-200">
+                            <img src="${urlFoto}" class="w-full h-full object-cover cursor-zoom-in hover:scale-105 transition duration-300" 
                                  onmouseover="gantiPreview(${item.id}, '${urlFoto}')"
-                                 onclick="openLightbox('${urlFoto}')" 
-                                 alt="Pendukung">
+                                 onclick="bukaMekanismeGaleriBesar(${item.id}, '${urlFoto}')">
                         </div>
                     `;
                 });
 
-                // Susun Tampilan Baris Properti ala Rumah123 (Lebih Melebar & Mewah)
                 const card = `
-                    <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 hover:shadow-xl transition duration-300">
-                        
+                    <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 property-card">
                         <div class="lg:col-span-6 flex flex-col gap-3">
                             <div class="relative h-64 md:h-80 w-full overflow-hidden rounded-xl border border-gray-100 bg-gray-50">
                                 <img id="cover-${item.id}" src="${item.imgUtama}" class="w-full h-full object-cover cursor-zoom-in" onclick="bukaLightboxUtama(${item.id})" alt="Utama">
                                 <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow">${item.tipe}</span>
                                 <span class="absolute top-3 right-3 bg-orange-500 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow">${item.status}</span>
                             </div>
-                            
                             <div class="grid grid-cols-5 gap-2">
                                 ${htmlThumbs}
                             </div>
@@ -341,87 +385,151 @@
                         
                         <div class="lg:col-span-6 flex flex-col justify-between">
                             <div>
-                                <h3 class="font-extrabold text-xl md:text-2xl text-gray-900 mb-1 leading-tight">${item.judul}</h3>
+                                <h3 class="font-extrabold text-xl text-gray-900 mb-1 leading-tight">${item.judul}</h3>
                                 <p class="text-blue-600 font-black text-2xl mb-1">${item.harga}</p>
                                 <p class="text-gray-400 text-xs mb-4 flex items-center gap-1"><i class="fa-solid fa-location-dot text-red-500"></i> ${item.alamat}</p>
+                        <div class="lg:col-span-3 flex flex-col gap-2">
+                            <div class="w-full h-32 rounded-xl overflow-hidden border"><iframe src="${item.mapLink}" class="w-full h-full border-0"></iframe></div>
+                        </div>
                                 
                                 <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 mb-4">
                                     <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Spesifikasi Unit:</p>
                                     <p class="text-sm font-semibold text-gray-700"><i class="fa-solid fa-bed text-blue-500 mr-1"></i> ${item.spek}</p>
-                                    <p class="text-sm font-semibold text-gray-700"> ${item.moto}</p>
+                                    <p class="text-sm font-semibold text-gray-700"><i class="fa-solid fa-star text-orange-500 mr-1"></i> ${item.moto}</p>
                                 </div>
-
                                 <div class="pt-2">
-                                    <p id="desc-short-${item.id}" class="text-gray-600 text-xs leading-relaxed line-clamp-3"></p>
+                                    <p id="desc-short-${item.id}" class="text-gray-600 text-xs leading-relaxed line-clamp-3">${item.deskripsi}</p>
                                     <p id="desc-full-${item.id}" class="hidden text-gray-600 text-xs leading-relaxed bg-blue-50/40 p-3 rounded-lg border border-blue-100/50">${item.deskripsi}</p>
-                                    <button id="btn-read-${item.id}" onclick="toggleDeskripsi(${item.id})" class="text-blue-600 hover:text-blue-800 font-bold text-xs mt-1 cursor-pointer inline-block">Selengkapnya <i class="fa-solid fa-chevron-down text-[9px]"></i></button>
+                                    <button id="btn-read-${item.id}" onclick="toggleDeskripsi(${item.id})" class="text-blue-600 hover:text-blue-800 font-bold text-xs mt-1 cursor-pointer">Selengkapnya <i class="fa-solid fa-chevron-down text-[9px]"></i></button>
                                 </div>
+								
                             </div>
-
                             <div class="mt-6 pt-4 border-t border-gray-100 flex gap-3">
-                                <a href="#hubungi" onclick="setPropertiPilihan('${item.judul}')" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-xs text-sm">Tanyakan Detail Unit</a>
+                                <a href="#hubungi" onclick="setPropertiPilihan('${item.judul}')" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-sm text-sm">Tanyakan Detail Unit</a>
                             </div>
                         </div>
-
                     </div>
                 `;
                 listContainer.innerHTML += card;
             });
         }
 
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobileMenu');
-            menu.classList.toggle('hidden');
-        }
-        
-        let currentGallery = 1;
+        // 2. LOGIC FILTER ADVANCED PENCARIAN PROPERTI
+        function jalankanPencarianKatalog() {
+            const tipe = document.getElementById('search-tipe').value;
+            const status = document.getElementById('search-status').value;
+            const wilayah = document.getElementById('search-wilayah').value;
 
-        // FUNGSI KETIKA GAMBAR PENDUKUNG DI-HOVER (DISENTUH)
+            let filterHasil = daftarProperti;
+
+            if(tipe !== 'semua') filterHasil = filterHasil.filter(item => item.tipe === tipe);
+            if(status !== 'semua') filterHasil = filterHasil.filter(item => item.status === status);
+            if(wilayah !== 'semua') filterHasil = filterHasil.filter(item => item.wilayah === wilayah);
+
+            tampilkanKatalog(filterHasil);
+            document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 3. LOGIC PENCARIAN AGEN BERDASARKAN NAMA
+        function filterCariNamaAgen() {
+            const query = document.getElementById('input-cari-agen').value.toLowerCase().trim();
+            const filterAgen = dataTopAgen.filter(ag => ag.nama.toLowerCase().includes(query));
+            renderDaftarAgen(filterAgen);
+        }
+
+        // 4. RENDER DAFTAR AGEN KE DOM
+        function renderDaftarAgen(agenData) {
+            const container = document.getElementById('container-top-agen');
+            container.innerHTML = '';
+            
+            if(agenData.length === 0){
+                container.innerHTML = `<div class="col-span-full py-6 text-center text-gray-400 text-sm">Nama agen tidak ditemukan.</div>`;
+                return;
+            }
+
+            agenData.forEach(ag => {
+                const element = `
+                    <div class="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-center shadow-xs flex flex-col items-center">
+                        <img src="${ag.foto}" class="w-16 h-16 rounded-full object-cover mb-3 border-2 border-blue-600 shadow-sm" alt="${ag.nama}">
+                        <h4 class="font-bold text-gray-900 text-sm line-clamp-1">${ag.nama}</h4>
+                        <p class="text-[10px] text-gray-400 font-semibold uppercase tracking-wider mb-3">Verified Agent</p>
+                        <a href="https://wa.me/${ag.telp}" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs py-2 rounded-xl font-bold transition flex items-center justify-center gap-1">
+                            <i class="fab fa-whatsapp"></i> Hubungi
+                        </a>
+                    </div>
+                `;
+                container.innerHTML += element;
+            });
+        }
+
+        // 5. SLIDER KIRI-KANAN LIGHTBOX (ID & ARRAY SAMA)
+        function bukaMekanismeGaleriBesar(propertiId, urlFotoAktif) {
+            const properti = daftarProperti.find(p => p.id === propertiId);
+            if(!properti) return;
+
+            arrayFotoLightboxMekanis = properti.gambarPendukung;
+            indeksFotoAktifSekarang = arrayFotoLightboxMekanis.indexOf(urlFotoAktif);
+            if(indeksFotoAktifSekarang === -1) indeksFotoAktifSekarang = 0;
+
+            perbaruiTampilanMekanisLightbox();
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function bukaLightboxUtamaLokal(id) {
+            const srcAktif = document.getElementById(`cover-${id}`).src;
+            bukaMekanismeGaleriBesar(id, srcAktif);
+        }
+
+        function perbaruiTampilanMekanisLightbox() {
+            const imgEl = document.getElementById('lightbox-img');
+            const counterEl = document.getElementById('lightbox-counter');
+            
+            imgEl.src = arrayFotoLightboxMekanis[indeksFotoAktifSekarang];
+            counterEl.innerText = `Gambar ${indeksFotoAktifSekarang + 1} dari ${arrayFotoLightboxMekanis.length}`;
+        }
+
+        function geserGambarMaju(event) {
+            event.stopPropagation();
+            if(arrayFotoLightboxMekanis.length === 0) return;
+            indeksFotoAktifSekarang = (indeksFotoAktifSekarang + 1) % arrayFotoLightboxMekanis.length;
+            perbaruiTampilanMekanisLightbox();
+        }
+
+        function geserGambarMundur(event) {
+            event.stopPropagation();
+            if(arrayFotoLightboxMekanis.length === 0) return;
+            indeksFotoAktifSekarang = (indeksFotoAktifSekarang - 1 + arrayFotoLightboxMekanis.length) % arrayFotoLightboxMekanis.length;
+            perbaruiTampilanMekanisLightbox();
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
         function gantiPreview(id, urlBaru) {
             document.getElementById(`cover-${id}`).src = urlBaru;
         }
 
-        // FUNGSI KETIKA GAMBAR UTAMA DIKLIK (AKAN MEMPERBESAR GAMBAR YANG SEDANG AKTIF TAMPIL)
-        function bukaLightboxUtama(id) {
-            const srcAktif = document.getElementById(`cover-${id}`).src;
-            openLightbox(srcAktif);
-        }
-
-        // BACA SELENGKAPNYA
         function toggleDeskripsi(id) {
             const shortText = document.getElementById(`desc-short-${id}`);
             const fullText = document.getElementById(`desc-full-${id}`);
             const btn = document.getElementById(`btn-read-${id}`);
             if (fullText.classList.contains('hidden')) {
                 fullText.classList.remove('hidden'); shortText.classList.add('hidden');
-                btn.innerHTML = 'Sembunyikan <i class="fa-solid fa-chevron-up text-[12px]"></i>';
+                btn.innerHTML = 'Sembunyikan <i class="fa-solid fa-chevron-up text-[10px]"></i>';
             } else {
                 fullText.classList.add('hidden'); shortText.classList.remove('hidden');
-                btn.innerHTML = 'Selengkapnya <i class="fa-solid fa-chevron-down text-[12px]"></i>';
+                btn.innerHTML = 'Selengkapnya <i class="fa-solid fa-chevron-down text-[10px]"></i>';
             }
         }
 
-        // FILTERING
-        function filterProperti(kategori) {
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => btn.className = "filter-btn bg-white hover:bg-gray-100 text-gray-700 font-medium px-5 py-2 rounded-full border border-gray-200 transition cursor-pointer");
-            event.target.className = "filter-btn bg-blue-600 text-white font-medium px-5 py-2 rounded-full shadow transition cursor-pointer";
-            if (kategori === 'semua') { tampilkanKatalog(daftarProperti); }
-            else { tampilkanKatalog(daftarProperti.filter(item => item.tipe === kategori)); }
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
         }
 
-        // LIGHTBOX FUNCTIONS
-        function openLightbox(src) {
-            document.getElementById('lightbox-img').src = src;
-            document.getElementById('lightbox').style.display = 'flex';
+        function setPropertiPilihan(judul) {
+            document.getElementById('form-properti-pilihan').value = judul;
         }
-        function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
-        function toggleMenu() {
-            const menu = document.getElementById('mobile-menu');
-            if (menu.classList.contains('hidden')) menu.classList.remove('hidden');
-            else menu.classList.add('hidden');
-        }
-        function setPropertiPilihan(judul) { document.getElementById('form-properti-pilihan').value = judul; }
 
         function kirimFormKeWhatsApp(event) {
             event.preventDefault();
@@ -432,8 +540,32 @@
             window.open(`https://wa.me/6285196447071?text=${text}`, '_blank');
         }
 
-        // Jalankan katalog
+        function inisialisasiHeroSlider() {
+            const container = document.getElementById('hero-slider');
+            const listGambar = daftarProperti.map(item => item.imgUtama);
+            container.innerHTML = '';
+            listGambar.forEach((url, index) => {
+                const imgEl = document.createElement('img');
+                imgEl.src = url;
+                imgEl.className = `absolute inset-0 w-full h-full object-cover slide-fade ${index === 0 ? 'active' : ''}`;
+                container.appendChild(imgEl);
+            });
+
+            let indeksSlide = 0;
+            const slides = container.getElementsByClassName('slide-fade');
+            setInterval(() => {
+                if(slides.length > 1) {
+                    slides[indeksSlide].classList.remove('active');
+                    indeksSlide = (indeksSlide + 1) % slides.length;
+                    slides[indeksSlide].classList.add('active');
+                }
+            }, 4000);
+        }
+
+        // JALANKAN SAAT SELESAI LOAD
         tampilkanKatalog(daftarProperti);
+        renderDaftarAgen(dataTopAgen);
+        inisialisasiHeroSlider();
     </script>
 </body>
 </html>
