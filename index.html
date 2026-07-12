@@ -141,10 +141,10 @@
     <section id="agen" class="bg-white py-16 border-t border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10">
-                <h2 class="text-2xl font-extrabold text-blue-950">Jajaran 10 Top Agen Profesional</h2>
-                <p class="text-sm text-gray-500 mt-1">Siap membantu transaksi properti Anda dengan aman, cepat, dan transparan.</p>
+                <h2 class="text-2xl font-extrabold text-blue-950">Agen Profesional</h2>
+                <p class="text-sm text-gray-500 mt-1">Siap membantu transaksi kebutuhan properti Anda.</p>
             </div>
-            <div id="container-top-agen" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4"></div>
+            <div id="container-top-agen" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4"></div>
         </div>
     </section>
 
@@ -213,31 +213,39 @@
     <script>
         const daftarProperti = [
             { 
-                id: 1, tipe: 'rumah', status: 'dijual', wilayah: 'depok',
-                judul: 'Apartemen ATLANTA Residence, Margonda Depok', harga: 'Rp 1.500.000.000,-', 
-                spek: '1 KT | 1 KM | 45 m²', moto: 'Apartemen dijual jarang ada', 
-                alamat: 'Jl. Raya Margonda No. 28, Pondok Cina Lt: 10 Corner/ Hook',
-                deskripsi: 'Terkoneksi RS Bunda, Dipusat kota Depok, Pemandangan 2 sisi kaca menghadap kota Depok, dekat dengan Mall Margonda, kampus2 ternama UI, Gunadharma, Keamanan 24 jam, Full furnish, Memakai cat Duco terbaik, Fasilitas: wifi, kolam renang, ruang pertemuan.',
+                id: 1, tipe: 'apartemen', status: 'dijual', wilayah: 'depok',
+                judul: 'Apartemen Atlanta di Pusat Kota Depok, Jalan Margonda Raya', 
+				harga: 'Lantai 10 Hook, Luas: 45 m2 [1BR Original]', 
+                namaAgen: 'I.P Sumardi',
+                spek: '1BR Original, 1 Balkon, Full Furnish (Interior Duco) & Electronik: Kulkas, Microwave, Dispenser, TV, 2 AC, Water Heater, Balkon', 
+				moto: 'Rp. 1.500.000.000,-', 
+                alamat: 'Jl. Raya Margonda No. 28, Pondok Cina, Depok, Jawa Barat, Indonesia',
+                deskripsi: 'Menghadap Selatan/ kota Depok, 2 (dua) sisi kaca, terkoneksi dengan RS. Bunda tidak perlu keluar gedung, Fasilitas; lobby, kolam renang indoor, gym, gedung pertemuan/ presentasi, indomaret. Fasilitas luar (lihat gambar); dekat dengan beberapa universitas negeri dan swasta, pusat perbelanjaan, penginapan/ hotel, dekat akses jalan tol,stasiun kereta api, dan lain lain.',
                 mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.220565717389!2d106.83247557599651!3d-6.365494962271993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69eda4b5af834b%3A0xcd4b922e1696bb15!2sAtlanta%20Residences%20Depok!5e0!3m2!1sid!2sid!4v1783679047127!5m2!1sid!2sid',
                 imgUtama: 'images/atlanta/atlantacomb.png',
                 gambarPendukung: [
-                    'images/atlanta/atlantakt1.jpg',                     'images/atlanta/atlantakt2.jpeg', 
+                    'images/atlanta/atlantakt1.jpg',                     
+					'images/atlanta/atlantakt2.jpeg', 
                     'images/atlanta/atlantakt3laci.jpeg', 
                     'images/atlanta/atlantart1.jpeg', 
                     'images/atlanta/atlantart2.jpeg',  
                     'images/atlanta/atlantakm.jpeg',  
-                    'images/atlanta/atlantacomb.png',  
+                    'images/atlanta/atlantacomb.png', 
+                    'images/atlanta/fasilitas.jpg', 
                     'images/atlanta/atlantatipe45.jpg', 
                     'images/atlanta/atlantaroom.jpg', 
                     'images/atlanta/atlantapool1.jpg'  // Contoh Foto Kolam Renang                    
                 ]
             },
             { 
-                id: 2, tipe: 'apartemen', status: 'disewakan', wilayah: 'depok',
-                judul: 'DAVE Apartment Lt. 10, Beji Depok', harga: 'Rp 400.000.000,-', 
-                spek: '1 KT | 1 KM | 22,64 m2 | Studio', moto: 'Dekat kampus UI, Harga Murah', 
-                alamat: 'Jl. Palikalikarya Kukusan, Beji, Depok',
-                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
+                id: 2, tipe: 'apartemen', status: 'dijual', wilayah: 'depok',
+                judul: 'Apartemen DAVE, Beji Depok', 
+				harga: 'Lantai 7, Tipe Studio Meizanin, 22,64 m2', 
+                namaAgen: 'I.P Sumardi',
+                spek: 'Studio Meizanin, Kulkas, AC, Dispenser, TV', 
+				moto: 'Rp 450.000.000,-', 
+                alamat: 'Jl. Palakali, Kukusan, Beji, Depok, Jawa Barat, Indonesia',
+                deskripsi: 'Menghadap Utara, public library, dekat sekali dengan Universitas Indonesia, sky pool, gym, dekat akses jalan tol, akses tol, ATM bersama, Indomaret, kafe Kopi Kenangan.',
                 imgUtama: 'images/dave/davegedung.jpg',
                 mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.196506591642!2d106.81429457599663!3d-6.368610462301306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69efd198f3a3ff%3A0x12765898998997dd!2sDAVE%20Apartment!5e0!3m2!1sid!2sid!4v1783679175070!5m2!1sid!2sid',
                 gambarPendukung: [
@@ -245,16 +253,20 @@
                     'images/dave/davekt2.jpeg',
                     'images/dave/daveinvoice.jpeg',
                     'images/dave/davefasilitas.jpg',
+                    'images/dave/davefasilitas2.jpg',
                     'images/dave/davelobby.jpeg',
                     'images/dave/daveindomaret.jpeg'
                 ]
             },
             { 
                 id: 3, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
-                judul: 'LRT CITY Sentul, Lt: 21 Corner/Hook', harga: 'Rp 1.000.000.000,-', 
-                spek: '1 KTU | 1 KT | 1 KM | 62,50 m2 | 2 BR', moto: 'Apartemen 2 BR', 
+                judul: 'Royal Sentul Park LRT', 
+				harga: '2BR, 2 Balkon, Lantai 21 Hook, Luas: 62.50 m2 ', 
+                namaAgen: 'Mira',
+                spek: '2BR Hook, 2 Balkon, Full Furnish & Electronik: Kulkas 2 pintu, Microwave, Dispenser, TV, 3 AC, Water Heater, kompor tanam bermerek (hook)', 
+				moto: 'Rp. 1.500.000.000,-', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
-                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
+                deskripsi: 'Menghadap Utara, View gunung Gede, Kolam renang, jalan tol, Fasilitas (lihat gambar): dekat pusat perbelanjaan; AEON Mall, Cibinong city mall, sentul city plaza, dekat beberapa kampus; Trisakti, Institut Teknologi dan Bisnis, dekat hotel dan penginapan, wisata, dan lain lain.',
                 imgUtama: 'images/lrt/lrt2161/lrtgedung.jpg',
                 mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
                 gambarPendukung: [
@@ -269,53 +281,65 @@
                     'images/lrt/lrt2161/lrt2161dapur.jpeg',
                     'images/lrt/lrt2161/lrt2161koridor2.jpeg',
                     'images/lrt/lrt2161/lrt2161koridor1.jpeg',
+                    'images/lrt/fasilitas lrt.jpg', 
                     'images/lrt/lrt2161/lrt2161wkm.jpeg'
                 ]
             },
             { 
                 id: 4, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
-                judul: 'LRT CITY Sentul, Lt: 10 (1)', harga: 'Rp 500.000.000,-', 
-                spek: '1 KT | 1 KM | 27,50 m2 | Studio', moto: 'Apartemen Studio', 
+                judul: 'Royal Sentul Park LRT', 
+				harga: 'Studio Deluxe, 1 Balkon, Lantai 10, Luas: 27.50 m2 ', 
+                namaAgen: 'Mira',
+                spek: 'Studio Deluxe, Full Furnish & Electronik: Kulkas 2 pintu, TV, 1 AC, Water Heater,',
+				moto: 'Rp. 750.000.000,-', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
-                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
+                deskripsi: 'Menghadap Utara, View gunung Gede, gunung Pancar, Kolam renang, jalan tol, Fasilitas (lihat gambar): dekat pusat perbelanjaan; AEON Mall, Cibinong city mall, sentul city plaza, dekat beberapa kampus; Trisakti, Institut Teknologi dan Bisnis, dekat hotel dan penginapan, wisata, dan lain lain.',
                 imgUtama: 'images/lrt/lrt1019/lrt1019kt1.jpeg',
-                mapLink: 'https://maps.google.com/maps?q=Jl.%20Ampera%20Raya%20No.14,%20Jakarta%20Selatan&t=&z=13&ie=UTF8&iwloc=&output=embed',
+                mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
                 gambarPendukung: [
                     'images/lrt/lrt1019/lrt1019kt1.jpeg',
                     'images/lrt/lrt1019/lrt1019kt2.jpeg',
                     'images/lrt/lrt1019/lrt1019rt.jpeg',
                     'images/lrt/lrt1019/lrt1019dapur.jpeg',
+                    'images/lrt/fasilitas lrt.jpg', 
                     'images/lrt/lrt2161/lrtgedung.jpg'
                 ]
             },
             { 
                 id: 5, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
-                judul: 'LRT CITY Sentul, Lt: 10 (2)', harga: 'Rp 500.000.000,-', 
-                spek: '1 KT | 1 KM | 27,50 m2 | Studio', moto: 'Apartemen Studio', 
+                judul: 'Royal Sentul Park LRT', 
+				harga: 'Studio Deluxe, 1 Balkon, Lantai 10, Luas: 27.50 m2 ', 
+                namaAgen: 'Fairuz Zabady',
+                spek: 'Studio Deluxe, Full Furnish & Electronik: Kulkas 2 pintu, TV, 1 AC, Water Heater,',
+				moto: 'Rp. 750.000.000,-', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
-                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
+                deskripsi: 'Menghadap Utara, View gunung Gede, gunung Pancar, Kolam renang, jalan tol, Fasilitas (lihat gambar): dekat pusat perbelanjaan; AEON Mall, Cibinong city mall, sentul city plaza, dekat beberapa kampus; Trisakti, Institut Teknologi dan Bisnis, dekat hotel dan penginapan, wisata, dan lain lain.',
                 imgUtama: 'images/lrt/lrt1020/lrt1020kt1.jpeg',
-                mapLink: 'https://maps.google.com/maps?q=Jl.%20Ampera%20Raya%20No.14,%20Jakarta%20Selatan&t=&z=13&ie=UTF8&iwloc=&output=embed',
+                mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
                 gambarPendukung: [
                     'images/lrt/lrt1020/lrt1020kt1.jpeg',
                     'images/lrt/lrt1020/lrt1020kt2.jpeg',
                     'images/lrt/lrt1020/lrt1020kt3.jpeg',
+                    'images/lrt/fasilitas lrt.jpg', 
                     'images/lrt/lrt2161/lrtgedung.jpg'
                 ]
             },
             { 
                 id: 6, tipe: 'apartemen', status: 'terjual', wilayah: 'bogor',
-                judul: 'LRT CITY Sentul, Lt: 30', harga: 'Rp 450.000.000,-', 
-                spek: '1 KT | 1 KM | 22,7 m2 | Studio', moto: 'Apartemen Studio', 
+                judul: 'Royal Sentul Park LRT', 
+				harga: 'Studio Deluxe, 1 Balkon, Lantai 30, Luas: 22.70 m2 ', 
+                namaAgen: 'Fairuz Zabady',
+                spek: 'Studio Deluxe, Full Furnish & Electronik: Kulkas 2 pintu, TV, 1 AC, Water Heater,',
+				moto: 'Rp. 530.000.000,-', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
-                deskripsi: 'AC, Smart TV, Wifi, Kulkas, Menghadap Utara.',
-                imgUtama: 'images/lrt/lrt3038/lrt3038kt1.jpeg',
-                mapLink: 'https://maps.google.com/maps?q=Jl.%20Ampera%20Raya%20No.14,%20Jakarta%20Selatan&t=&z=13&ie=UTF8&iwloc=&output=embed',
+                deskripsi: 'Menghadap Utara, View gunung Gede, gunung Pancar, Kolam renang, jalan tol, Fasilitas (lihat gambar): dekat pusat perbelanjaan; AEON Mall, Cibinong city mall, sentul city plaza, dekat beberapa kampus; Trisakti, Institut Teknologi dan Bisnis, dekat hotel dan penginapan, wisata, dan lain lain.',
+                mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
                 gambarPendukung: [
                     'images/lrt/lrt3038/lrt3038kt1.jpeg',
                     'images/lrt/lrt3038/lrt3038kt2.jpeg',
                     'images/lrt/lrt3038/lrt3038kt3.jpeg',
                     'images/lrt/lrt3038/lrt3038ktv.jpeg',
+                    'images/lrt/fasilitas lrt.jpg', 
                     'images/lrt/lrt2161/lrtgedung.jpg'
                 ]
             }
@@ -323,16 +347,9 @@
 
         // 4. DATA 10 TOP AGEN
         const dataTopAgen = [
-            { nama: "Budi Santoso", foto: "https://i.pravatar.cc/150?img=33", telp: "6285196447071" },
-            { nama: "Sinta Permata", foto: "https://i.pravatar.cc/150?img=47", telp: "6285196447071" },
-            { nama: "Ahmad Fauzi", foto: "https://i.pravatar.cc/150?img=12", telp: "6285196447071" },
-            { nama: "Dewi Lestari", foto: "https://i.pravatar.cc/150?img=44", telp: "6285196447071" },
-            { nama: "Rian Hidayat", foto: "https://i.pravatar.cc/150?img=60", telp: "6285196447071" },
-            { nama: "Andi Wijaya", foto: "https://i.pravatar.cc/150?img=68", telp: "6285196447071" },
-            { nama: "Siti Rahma", foto: "https://i.pravatar.cc/150?img=49", telp: "6285196447071" },
-            { nama: "Hendra Wijaya", foto: "https://i.pravatar.cc/150?img=11", telp: "6285196447071" },
-            { nama: "Maya Indah", foto: "https://i.pravatar.cc/150?img=26", telp: "6285196447071" },
-            { nama: "Rudi Hermawan", foto: "https://i.pravatar.cc/150?img=57", telp: "6285196447071" }
+            { nama: "Irwan", foto: "images/agen/irwan.jpg", telp: "6285196447071" },
+            { nama: "Fairuz", foto: "images/agen/fairuz.jpg", telp: "6281290524003" },
+            { nama: "Mira", foto: "images/agen/mira.jpg", telp: "6281211752221" }
         ];
 
         // ARRAY JALUR GLOBAL LIGHTBOX SLIDER (ID SAMA)
@@ -394,7 +411,7 @@
                                 
                                 <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 mb-4">
                                     <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">Spesifikasi Unit:</p>
-                                    <p class="text-sm font-semibold text-gray-700"><i class="fa-solid fa-bed text-blue-500 mr-1"></i> ${item.spek}</p>
+                                    <p class="text-sm font-semibold text-gray-700"> ${item.spek}</p>
                                     <p class="text-sm font-semibold text-gray-700"><i class="fa-solid fa-star text-orange-500 mr-1"></i> ${item.moto}</p>
                                 </div>
                                 <div class="pt-2">
@@ -419,12 +436,14 @@
             const tipe = document.getElementById('search-tipe').value;
             const status = document.getElementById('search-status').value;
             const wilayah = document.getElementById('search-wilayah').value;
+            const agen = document.getElementById('search-agen').value.toLowerCase();
 
             let filterHasil = daftarProperti;
 
             if(tipe !== 'semua') filterHasil = filterHasil.filter(item => item.tipe === tipe);
             if(status !== 'semua') filterHasil = filterHasil.filter(item => item.status === status);
             if(wilayah !== 'semua') filterHasil = filterHasil.filter(item => item.wilayah === wilayah);
+            if(agen !== 'semua') filterHasil = filterHasil.filter(item => item.item.namaAgen.toLowerCase() === agen);
 
             tampilkanKatalog(filterHasil);
             document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
