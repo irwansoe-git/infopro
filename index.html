@@ -126,9 +126,9 @@
                     <label class="block text-xs font-bold text-gray-500 uppercase mb-1" data-lang="label-agent">Nama Agen</label>
                     <select id="search-agen" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 text-sm">
                         <option value="semua" data-lang="opt-all-agents">Semua Agen</option>
+                        <option value="Irwan">Irwan</option>
                         <option value="Irna">Irna</option>
                         <option value="Gaby">Gaby</option>
-                        <option value="Irwan">Irwan</option>
                     </select>
                 </div>
             </div>
@@ -374,7 +374,7 @@
             },
             { 
                 id: 2, tipe: 'apartemen', status: 'tersewa', wilayah: 'depok',
-                judul: 'Apartemen DAVE, Beji Depok', 
+                judul: 'Apartemen DAVE, Beji, Depok', 
                 harga: 'Studio Meizanin, No.710', 
                 namaAgen: 'Irwan',
                 spek: 'Luas: 22,64 m2 | Balkon | Full Furnish | Kulkas, 1 AC, Dispenser, TV, Intercom', 
@@ -419,7 +419,7 @@
             },
             { 
                 id: 4, tipe: 'apartemen', status: 'dijual/disewa', wilayah: 'bogor',
-                judul: 'Royal Sentul Park LRT 2161', 
+                judul: 'Royal Sentul Park, Bogor  (2161)', 
                 harga: '2 Bedroom, No.2161 (HOOK)', 
                 namaAgen: 'Irwan',
                 spek: 'Luas: 62.50 m2 | 2 Balkon | Full Furnish | Kulkas 2 pintu, TV, 3 AC, Microwave, Dispenser, 2 Kompor Tanam Hood Hock Bermerek', 
@@ -446,13 +446,13 @@
             },
             { 
                 id: 5, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
-                judul: 'Royal Sentul Park LRT 1019', 
+                judul: 'Royal Sentul Park, Bogor (1019)', 
                 harga: 'Studio Deluxe, No.1019', 
                 namaAgen: 'Irwan',
                 spek: 'Luas: 27.50 m2 | Balkon | Full Furnish | Kulkas, TV, 1 AC, Water Heater, Dispenser, Microwave, 2 Kompor Tanam Hood Hock Bermerek',
                 motoj: 'Rp. 750.000.000,-', 
                 motor: 'tidak disewakan',
-                alamat: 'Royal Sentul Park, Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
+                alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
                 deskripsi: 'Menghadap Utara, view Tol Jagorawi, Berdampingan dengan 1020 bisa terkoneksi, Interior mewah.',
                 imgUtama: 'images/lrt/lrt1019/lrt1019kt1.jpeg',
                 mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
@@ -467,7 +467,7 @@
             },
             { 
                 id: 6, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
-                judul: 'Royal Sentul Park LRT 1020', 
+                judul: 'Royal Sentul Park, Bogor (1020)', 
                 harga: 'Studio Deluxe, No.1020', 
                 namaAgen: 'Irwan',
                 spek: 'Luas: 27.50 m2 | Balkon | Full Furnish | Kulkas, TV, 1 AC, Water Heater, Dispenser, Kompor Tanam Hood Hock Bermerek',
@@ -487,7 +487,7 @@
             },
             { 
                 id: 7, tipe: 'apartemen', status: 'terjual', wilayah: 'bogor',
-                judul: 'Royal Sentul Park LRT 3038', 
+                judul: 'Royal Sentul Park, Bogor (3038)', 
                 harga: 'Studio Regular, No.3038',  
                 namaAgen: 'Irwan',
                 spek: 'Luas: 23.50 m2 | Balkon | Full Furnish | Kulkas, TV, 1 AC, Water Heater, Kompor Tanam Hood Hock Bermerek',
@@ -503,16 +503,16 @@
                     'images/lrt/lrt3038/lrt3038kt1.jpeg',
                     'images/lrt/lrt3038/lrt3038kt2.jpeg',
                     'images/lrt/lrt3038/lrt3038kt3.jpeg',
-                    'images/lrt/lrt3038/lrt3038ktv.jpeg' 
+                    'images/lrt/lrt3038/lrt3038ktv.jpeg'
                 ]
             }
         ];
 
         // DATA AGENT
         const dataTopAgen = [
+            { nama: "Irwan", foto: "images/agen/irwan.jpg", telp: "6285196447071" },
             { nama: "Irna", foto: "images/agen/irna.png", telp: "6281237279050" },
-            { nama: "Gaby", foto: "images/agen/gaby.png", telp: "62817202065" },
-            { nama: "Irwan", foto: "images/agen/irwan.jpg", telp: "6285196447071" }
+            { nama: "Gaby", foto: "images/agen/gaby.png", telp: "62817202065" }
         ];
 
         let arrayFotoLightboxMekanis = [];
@@ -565,7 +565,7 @@
                                 <h3 class="text-blue-600 font-extrabold text-xl text-gray-900 mb-1 leading-tight">${item.judul}</h3>
                                 <p class="text-blue-400 font-black text-xl mb-1">${item.harga}</p>
                                 <p>
-                                    <a href="https://www.google.com/maps?q=${encodeURIComponent(item.alamat)}" target="_blank" class="text-gray-400 text-xs mb-4 flex items-center gap-1 hover:text-blue-600 transition group w-fit cursor-pointer">
+                                    <a href="https://www.google.com/maps?q=${encodeURIComponent(item.judul)}" target="_blank" class="text-gray-400 text-xs mb-4 flex items-center gap-1 hover:text-blue-600 transition group w-fit cursor-pointer">
                                         <i class="fa-solid fa-location-dot text-red-500 group-hover:scale-110 transition"></i> 
                                         <span class="underline decoration-dotted">${item.alamat}</span> 
                                     </a> 
