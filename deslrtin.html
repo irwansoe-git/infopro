@@ -160,11 +160,12 @@
         </div>
         
         <!-- Tombol Kembali ke Katalog Utama -->
-        <div class="pt-4">
-          <a href="index.html#properti-4" class="block w-full text-center bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-xl transition shadow-md text-sm">
-            <i class="fa-solid fa-arrow-left mr-2"></i> Kembali ke Katalog
-          </a>
-        </div>
+		<div class="pt-4">
+		  <!-- Atribut href diisi "#" saja, perpindahan halaman diatur oleh onclick -->
+		  <a href="#" onclick="kembaliKeProperti(event)" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-md text-sm">
+			<i class="fa-solid fa-arrow-left mr-2"></i> Kembali ke Katalog
+		  </a>
+		</div>
       </div>
 
     </div>
@@ -177,4 +178,22 @@
   </div>
 
 </body>
+
+	<script>
+	function kembaliKeProperti(event) {
+		event.preventDefault(); // Mencegah link melompat ke '#'
+		
+		// 1. Ambil parameter '?id=3' dari URL browser saat ini
+		const urlParams = new URLSearchParams(window.location.search);
+		const propertiId = urlParams.get('id'); 
+		
+		// 2. Jika ID ditemukan (misal angka 3), arahkan ke index.html#properti-3
+		if (propertiId) {
+			window.location.href = `index.html#properti-${propertiId}`;
+		} else {
+			window.location.href = "index.html"; // Jaga-jaga jika ID tidak ada di URL
+		}
+	}
+	</script>  
+
 </html>
