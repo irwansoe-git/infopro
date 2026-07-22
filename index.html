@@ -41,13 +41,13 @@
     <!-- NAVIGATION -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white text-2xl font-bold">🏠</div>
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white text-2xl font-bold shadow-md">🏠</div>
                 <div>
                     <h1 class="text-2xl font-bold tracking-tight text-blue-900">RumahImpian.id</h1>
                     <p class="text-xs text-gray-500 -mt-1" data-lang="nav-subtitle">Properti Terpercaya</p>
                 </div>
-            </div>
+            </a>
             
             <div class="hidden md:flex items-center gap-8 text-sm font-medium">
                 <a href="#katalog" class="nav-link text-gray-700 hover:text-blue-700" data-lang="nav-properties">Properti</a>
@@ -56,14 +56,14 @@
             </div>
             
             <div class="flex items-center gap-4">
-                <a href="https://wa.me/6285196447071" target="_blank" class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition">
+                <a href="https://wa.me/6285196447071" target="_blank" class="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition shadow-md">
                     <i class="fab fa-whatsapp"></i><span>Chat WA</span>
                 </a>
-                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-gray-700"><i class="fas fa-bars"></i></button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-gray-700 focus:outline-none"><i class="fas fa-bars"></i></button>
             </div>
         </div>
         
-        <div id="mobileMenu" class="hidden bg-white border-t px-6 py-4 flex flex-col gap-3 md:hidden">
+        <div id="mobileMenu" class="hidden bg-white border-t px-6 py-4 flex flex-col gap-3 md:hidden font-medium">
             <a href="#katalog" onclick="toggleMobileMenu()" data-lang="nav-properties">Properti</a>
             <a href="#agen" onclick="toggleMobileMenu()" data-lang="nav-agents">Agen</a>
             <a href="#hubungi" onclick="toggleMobileMenu()" data-lang="nav-contact">Hubungi Kami</a>
@@ -75,17 +75,15 @@
         <div id="hero-slider" class="absolute inset-0 z-0 bg-slate-900"></div>
         <div class="absolute inset-0 bg-black/50 z-10"></div>
         <div class="relative z-20 max-w-4xl px-6 text-center space-y-2">
-            <p class="text-xs md:text-sm font-black uppercase tracking-widest text-orange-400 drop-shadow" data-lang="hero-tag">INVESTASI AMAN & TERPERCAYA</p>
+            <p class="text-xs md:text-sm font-black uppercase tracking-widest text-amber-400 drop-shadow" data-lang="hero-tag">INVESTASI AMAN & TERPERCAYA</p>
             <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight drop-shadow-xl" data-lang="hero-title">Temukan Hunian & Aset Terbaik</h1>
-            <p class="text-xs md:text-base opacity-90 font-light max-w-2xl mx-auto" data-lang="hero-desc"></p>
+            <p class="text-xs md:text-base opacity-90 font-light max-w-2xl mx-auto" data-lang="hero-desc">Legalitas prima dipandu oleh jajaran profesional tepercaya.</p>
         </div>
     </header>
 
     <!-- FILTER SECTION -->
-	
     <section class="max-w-6xl mx-auto px-4 -mt-10 relative z-30 space-y-6">
         <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
-			<h3> </h3>
             <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                 <i class="fa-solid fa-magnifying-glass text-blue-600"></i> <span data-lang="filter-title">Cari Properti Impian</span>
             </h2>
@@ -109,8 +107,8 @@
                         <option value="dijual" data-lang="opt-sale">Dijual</option>
                         <option value="disewa" data-lang="opt-rent">Disewa</option>
                         <option value="dijual/disewa" data-lang="opt-sare">Dijual/Disewa</option>
-                        <option value="terjual" data-lang="opt-solde">Terjual</option>
-                        <option value="tersewa" data-lang="opt-rente">Tersewa</option>
+                        <option value="terjual" data-lang="opt-sold">Terjual</option>
+                        <option value="tersewa" data-lang="opt-rented">Tersewa</option>
                     </select>
                 </div>
                 <div>
@@ -121,7 +119,6 @@
                         <option value="bogor">Indonesia, Jawa Barat, Bogor</option>
                     </select>
                 </div>
-                <!-- FILTER NAMA AGEN YANG DIMINTA -->
                 <div>
                     <label class="block text-xs font-bold text-gray-500 uppercase mb-1" data-lang="label-agent">Nama Agen</label>
                     <select id="search-agen" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 text-sm">
@@ -152,12 +149,15 @@
     <section id="agen" class="bg-white py-16 border-t border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10">
-                <h2 class="text-2xl font-extrabold text-blue-950" data-lang="agents-section-title">Agen</h2>
+                <h2 class="text-2xl font-extrabold text-blue-950" data-lang="agents-section-title">Agen Profesional Kami</h2>
                 <p class="text-sm text-gray-500 mt-1" data-lang="agents-section-desc">Siap membantu transaksi kebutuhan properti Anda.</p>
+                <div class="mt-4 max-w-xs mx-auto flex gap-2">
+                    <input type="text" id="input-cari-agen" onkeyup="filterCariNamaAgen()" placeholder="Cari agen..." class="w-full p-2.5 border border-gray-200 bg-gray-50 rounded-xl text-xs outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
             </div>
-<div id="container-top-agen" class="flex flex-wrap justify-center gap-4"></div></div>
+            <div id="container-top-agen" class="flex flex-wrap justify-center gap-4"></div>
+        </div>
     </section>
-
 
     <!-- MAP SECTION -->
     <section id="peta" class="max-w-6xl mx-auto px-4 py-16">
@@ -178,17 +178,17 @@
             <form onsubmit="kirimFormKeWhatsApp(event)">
                 <div class="mb-4">
                     <label class="block text-sm font-semibold mb-2" data-lang="form-label-name">Nama Anda</label>
-                    <input type="text" id="form-nama" required class="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none">
+                    <input type="text" id="form-nama" required class="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-sm">
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-semibold mb-2" data-lang="form-label-unit">Unit Properti</label>
-                    <select id="form-properti-pilihan" class="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"></select>
+                    <select id="form-properti-pilihan" class="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-sm"></select>
                 </div>
                 <div class="mb-4">
                     <label class="block text-sm font-semibold mb-2" data-lang="form-label-message">Pesan</label>
-                    <textarea id="form-pesan" required rows="4" class="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                    <textarea id="form-pesan" required rows="4" class="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-sm"></textarea>
                 </div>
-                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg transition cursor-pointer" data-lang="form-btn-submit">Kirim ke WhatsApp</button>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-lg transition cursor-pointer text-sm" data-lang="form-btn-submit">Kirim ke WhatsApp</button>
             </form>
         </div>
     </section>
@@ -220,8 +220,47 @@
         </select>
     </div>
 
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 text-xs py-10 mt-20 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+            <div class="space-y-2">
+                <h3 class="text-white font-extrabold text-base tracking-wider">PROPERTI KATALOG</h3>
+                <p class="text-gray-500 leading-relaxed">Menyediakan pilihan hunian terbaik, strategis, dan bernilai investasi tinggi di lokasi prima.</p>
+            </div>
+            <div class="flex flex-col space-y-2">
+                <span class="text-white font-bold text-sm border-b border-gray-800 pb-1">Menu Utama</span>
+                <a href="#katalog" class="hover:text-blue-400 transition flex items-center gap-1 justify-center md:justify-start">Beranda</a>
+                <a href="#agen" class="hover:text-blue-400 transition flex items-center gap-1 justify-center md:justify-start">Hubungi Agen</a>
+                <a href="#peta" class="hover:text-blue-400 transition flex items-center gap-1 justify-center md:justify-start">Lokasi Peta</a>
+            </div>
+			
+        <!-- Kolom Tengah: Navigasi Cepat / Jaminan -->
+        <div class="flex flex-col gap-1.5 md:items-center">
+            <span class="text-white font-bold text-sm mb-1">Layanan Kami</span>
+            <div class="flex flex-wrap justify-center gap-4 text-gray-400">
+                <a href="#" class="hover:text-blue-400 transition">Beranda</a>
+                <a href="#hubungi" class="hover:text-blue-400 transition">Hubungi Agen</a>
+                <a href="#" class="hover:text-blue-400 transition">Syarat & Ketentuan</a>
+            </div>
+        </div>
+            <div class="flex flex-col space-y-3 md:text-right">
+                <div>
+                    <span class="text-white font-bold text-sm block mb-1">Ikuti Kami</span>
+                    <div class="flex justify-center md:justify-end gap-4 text-base">
+                        <a href="#" class="hover:text-blue-400 text-gray-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-blue-400 text-gray-500 transition"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://wa.me/6285196447071" class="hover:text-emerald-400 text-gray-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="pt-2 border-t border-gray-800/60">
+                    <p class="text-[11px] text-gray-600">&copy; 2026 RumahImpian.id.<br>All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // KAMUS MULTILINGUAL (ID, EN, FR, DE)
+        // KAMUS MULTILINGUAL (ID, EN)
         const kamusBahasa = {
             id: {
                 "nav-subtitle": "Properti Terpercaya",
@@ -230,7 +269,7 @@
                 "nav-contact": "Hubungi Kami",
                 "hero-tag": "INVESTASI AMAN & TERPERCAYA",
                 "hero-title": "Temukan Hunian & Aset Terbaik",
-                "hero-desc": "Legalitas prima dipandu oleh jajaran profesional.",
+                "hero-desc": "Legalitas prima dipandu oleh jajaran profesional tepercaya.",
                 "filter-title": "Cari Properti Impian",
                 "label-type": "Jenis Properti",
                 "label-status": "Status",
@@ -246,19 +285,16 @@
                 "opt-all-status": "Semua Status",
                 "opt-sale": "Dijual",
                 "opt-rent": "Disewa",
+                "opt-sare": "Dijual/Disewa",
                 "opt-sold": "Terjual",
+                "opt-rented": "Tersewa",
                 "opt-all-location": "Semua Lokasi",
                 "opt-all-agents": "Semua Agen",
                 "btn-apply-filter": "Terapkan Filter Pencarian",
-                "agent-search-title": "Cari Agen Resmi Terpercaya",
-                "btn-search": "Cari",
                 "catalog-title": "Rekomendasi Aset Unggulan",
-                "agents-section-title": "Agen Profesional",
+                "agents-section-title": "Agen Profesional Kami",
                 "agents-section-desc": "Siap membantu transaksi kebutuhan properti Anda.",
-                "video-tour-title": "Virtual Video Tour",
                 "map-title": "Kantor & Wilayah Layanan Kami",
-                "map-instructions": "Klik tombol di samping kanan untuk membuka rute navigasi satelit langsung melalui link resmi Google Maps.",
-                "btn-open-maps": "Buka Google Maps Resmi",
                 "form-title": "Formulir Pertanyaan & Survei",
                 "form-label-name": "Nama Anda",
                 "form-label-unit": "Unit Properti",
@@ -270,6 +306,8 @@
                 "btn-more": "Selengkapnya",
                 "btn-less": "Sembunyikan",
                 "btn-ask": "Tanyakan Detail Unit",
+                "unit-agents-title": "Agen Penanggung Jawab Unit",
+                "click-to-chat": "Klik ",
                 "spec-title": "Spesifikasi Unit:",
                 "jmotoj": "Dijual:",
                 "jmotor": "Disewa:",
@@ -279,8 +317,6 @@
                 "nav-subtitle": "Trusted Properties",
                 "nav-properties": "Properties",
                 "nav-agents": "Agents",
-                "nav-video": "Video Tour",
-                "nav-map": "Location Map",
                 "nav-contact": "Contact Us",
                 "hero-tag": "SAFE & TRUSTED INVESTMENT",
                 "hero-title": "Find Your Dream Home & Best Asset",
@@ -300,19 +336,16 @@
                 "opt-all-status": "All Status",
                 "opt-sale": "For Sale",
                 "opt-rent": "For Rent",
+                "opt-sare": "For Sale/Rent",
                 "opt-sold": "Sold",
+                "opt-rented": "Rented",
                 "opt-all-location": "All Locations",
                 "opt-all-agents": "All Agents",
                 "btn-apply-filter": "Apply Search Filter",
-                "agent-search-title": "Search Verified Agent",
-                "btn-search": "Search",
                 "catalog-title": "Featured Recommendations",
-                "agents-section-title": "Professional Agents",
+                "agents-section-title": "Our Professional Agents",
                 "agents-section-desc": "Ready to assist your property transaction needs.",
-                "video-tour-title": "Virtual Video Tour",
                 "map-title": "Our Office & Service Area",
-                "map-instructions": "Click the button on the right to open satellite navigation directly via official Google Maps.",
-                "btn-open-maps": "Open Official Google Maps",
                 "form-title": "Inquiry & Survey Form",
                 "form-label-name": "Your Name",
                 "form-label-unit": "Property Unit",
@@ -324,6 +357,8 @@
                 "btn-more": "Read More",
                 "btn-less": "Show Less",
                 "btn-ask": "Inquire Unit Details",
+                "unit-agents-title": "Unit Responsible Agents",
+                "click-to-chat": "Click",
                 "spec-title": "Unit Specification:",
                 "jmotoj": "For Sale:",
                 "jmotor": "For Rent:",
@@ -333,35 +368,29 @@
 
         let bahasaAktif = 'id';
 
-        function gantiBahasaGlobal(lang) {
-            bahasaAktif = lang;
-            document.querySelectorAll('[data-lang]').forEach(el => {
-                const key = el.getAttribute('data-lang');
-                if (kamusBahasa[lang] && kamusBahasa[lang][key]) {
-                    el.innerHTML = kamusBahasa[lang][key];
-                }
-            });
-            // Re-render data dinamis
-            tampilkanKatalog(daftarProperti);
-            renderDaftarAgen(dataTopAgen);
-        }
+        // DATABASE MASTER AGEN
+        const dataTopAgen = [
+            { nama: "Irwan", foto: "images/agen/irwan.jpg", telp: "6285196447071" },
+            { nama: "Irna", foto: "images/agen/irna.png", telp: "6281237279050" },
+            { nama: "Gaby", foto: "images/agen/gaby.png", telp: "62817202065" }
+        ];
 
-        // DATABASE PROPERTY
+        // DATABASE PROPERTI DENGAN MULTI-AGEN PER UNIT
         const daftarProperti = [
             { 
                 id: 1, tipe: 'apartemen', status: 'dijual/disewa', wilayah: 'depok',
                 judul: 'Apartemen Atlanta di Pusat Kota Depok', 
                 harga: '1 Bedroom Original, No.10A2 (HOOK)', 
-                namaAgen: 'Irwan',
+                agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
                 spek: 'Luas: 45 m2 | Balkon | Dinding Kamar Tidur Full Kaca | Full Furnish (Interior DUCO!!) | Kulkas 2 pintu, Microwave, Dispenser, TV, 2 AC, Water Heater, Kompor Tanam Hood Hock Bermerek', 
                 motoj: 'Rp. 1.500.000.000,-', 
                 motor: 'Rp. 8.000.000,- /bulan', 
                 alamat: 'Jl. Raya Margonda No. 28, Pondok Cina, Depok',
-                deskripsi: 'Menghadap Selatan/ kota Depok, dinding kamar tidur seluruhnya kaca, tempat tidur dengan 2 laci, akses ke RS Bunda di lt 4 apartemen, Fasilitas; lobby, kolam renang indoor, gym, gedung pertemuan/ presentasi, indomaret. Fasilitas luar (lihat gambar); dekat dengan beberapa universitas negeri dan swasta, pusat perbelanjaan, penginapan/ hotel, dekat akses jalan tol,stasiun kereta api, dan lain lain.',
+                deskripsi: 'Menghadap Selatan/ kota Depok, dinding kamar tidur seluruhnya kaca, tempat tidur dengan 2 laci, akses ke RS Bunda di lt 4 apartemen, Fasilitas; lobby, kolam renang indoor, gym, gedung pertemuan/ presentasi, indomaret. Fasilitas luar (lihat gambar); dekat dengan beberapa universitas negeri dan swasta, pusat perbelanjaan, penginapan/ hotel, dekat akses jalan tol, stasiun kereta api, dan lain lain.',
                 mapLink: 'Atlanta Residence, Margonda',
                 imgUtama: 'images/atlanta/atlantacomb.png',
-				fasilin: 'desatlantain.html',
-				fasilout: 'desatlantaout.html',
+                fasilin: 'desatlantain.html',
+                fasilout: 'desatlantaout.html',
                 gambarPendukung: [
                     'images/atlanta/atlantakt1.jpg',                     
                     'images/atlanta/atlantakt2.jpeg', 
@@ -376,7 +405,7 @@
                 id: 2, tipe: 'apartemen', status: 'tersewa', wilayah: 'depok',
                 judul: 'Apartemen DAVE, Beji, Depok', 
                 harga: 'Studio Meizanin, No.710', 
-                namaAgen: 'Irwan',
+                agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
                 spek: 'Luas: 22,64 m2 | Balkon | Full Furnish | Kulkas, 1 AC, Dispenser, TV, Intercom', 
                 motoj: 'Rp. 450.000.000,-', 
                 motor: 'Tersewa sampai akhir bulan September', 
@@ -384,9 +413,9 @@
                 deskripsi: 'Menghadap Utara, harga kosongan dibeli lunas Feb 2018 Rp. 385 juta, public library, dekat sekali dengan Universitas Indonesia, sky pool, gym, dekat akses jalan tol, akses tol, ATM bersama, Indomaret, kafe Kopi Kenangan.',
                 imgUtama: 'images/dave/davegedung.jpg',
                 mapLink: 'Apartemen DAVE, Beji Depok',
-				fasilin: 'desdavein.html',
-				fasilout: 'desdaveout.html',
-				gambarPendukung: [
+                fasilin: 'desdavein.html',
+                fasilout: 'desdaveout.html',
+                gambarPendukung: [
                     'images/dave/davekt1.jpeg',
                     'images/dave/davekt2.jpeg',
                     'images/dave/daveinvoice.jpeg'
@@ -396,16 +425,16 @@
                 id: 3, tipe: 'apartemen', status: 'dijual/disewa', wilayah: 'bogor',
                 judul: 'Saffron Apartemen Sentul', 
                 harga: 'Studio Deluxe, No.830', 
-                namaAgen: 'Irwan',
-                spek: 'Luas: 22.75 m2 | Balkon | Full Furnish | Brankas, Kulkas 2 pintu, Microwave, TV, 1 AC,  Mesin Cuci, Water Heater', 
+                agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
+                spek: 'Luas: 22.75 m2 | Balkon | Full Furnish | Brankas, Kulkas 2 pintu, Microwave, TV, 1 AC, Mesin Cuci, Water Heater', 
                 motoj: 'Rp. 1.500.000.000,-', 
                 motor: 'Rp. 7.000.000,-/bulan', 
                 alamat: 'Jl. MH. Thamrin Kav 8 Sentul City, Kec. Babakan Madang, Citaringgul',
                 deskripsi: 'Menghadap Utara, View gunung Gede, Kolam renang, jalan tol, Ke Aeon dari Lobby atau Basement 1, Fasilitas (lihat gambar): dekat pusat perbelanjaan; AEON Mall, IKEA, Cibinong city mall, sentul city plaza, dekat beberapa kampus; Trisakti, Institut Teknologi dan Bisnis, dekat hotel dan penginapan, wisata, dan lain lain.',
                 imgUtama: 'images/saffron/kt2.jpeg',
                 mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
-				fasilin: 'dessaffronin.html',
-				fasilout: 'dessaffronout.html',
+                fasilin: 'dessaffronin.html',
+                fasilout: 'dessaffronout.html',
                 gambarPendukung: [
                     'images/saffron/kt2.jpeg',
                     'images/saffron/kt1.jpeg',
@@ -415,22 +444,22 @@
                     'images/saffron/pool.jpeg',
                     'images/saffron/pool2.jpeg',
                     'images/saffron/dapur.jpeg'
-				]
+                ]
             },
             { 
                 id: 4, tipe: 'apartemen', status: 'dijual/disewa', wilayah: 'bogor',
-                judul: 'Apartemen Royal Park Sentul, Bogor  (2161)', 
+                judul: 'Apartemen Royal Park Sentul, Bogor (2161)', 
                 harga: '2 Bedroom, No.2161 (HOOK)', 
-                namaAgen: 'Irwan',
+                agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
                 spek: 'Luas: 62.50 m2 | 2 Balkon | Full Furnish | Kulkas 2 pintu, TV, 3 AC, Microwave, Dispenser, 2 Kompor Tanam Hood Hock Bermerek', 
                 motoj: 'Rp. 1.500.000.000,-', 
                 motor: 'tidak disewakan', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
                 deskripsi: 'Menghadap Selatan, view gunung Gede, kolam renang, tol Jagorawi, dekat pusat perbelanjaan; AEON Mall, IKEA , Cibinong City mall, dekat beberapa kampus; Trisakti, Institut Teknologi dan Bisnis, dekat Circuit Sentul, dekat pelatihan sepak bola FIFA, dekat SCC (Sentul Convention Centre), Harga Kosongan Rp. 1.4 Milyar + view Selatan 40 juta',
-				imgUtama: 'images/lrt/lrt2161/lrt2161ktus.jpeg',
+                imgUtama: 'images/lrt/lrt2161/lrt2161ktus.jpeg',
                 mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
-				fasilin: 'deslrtin.html',
-				fasilout: 'deslrtout.html',
+                fasilin: 'deslrtin.html',
+                fasilout: 'deslrtout.html',
                 gambarPendukung: [
                     'images/lrt/lrt2161/lrt2161ktus.jpeg',
                     'images/lrt/lrt2161/lrt2161ktu1.jpeg',
@@ -448,7 +477,7 @@
                 id: 5, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
                 judul: 'Apartemen Royal Park Sentul, Bogor (1019)', 
                 harga: 'Studio Deluxe, No.1019', 
-                namaAgen: 'Irwan',
+                agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
                 spek: 'Luas: 27.50 m2 | Balkon | Full Furnish | Kulkas, TV, 1 AC, Water Heater, Dispenser, Microwave, 2 Kompor Tanam Hood Hock Bermerek',
                 motoj: 'Rp. 750.000.000,-', 
                 motor: 'tidak disewakan',
@@ -456,8 +485,8 @@
                 deskripsi: 'Menghadap Utara, view Tol Jagorawi, Berdampingan dengan 1020 bisa terkoneksi, Interior mewah.',
                 imgUtama: 'images/lrt/lrt1019/lrt1019kt1.jpeg',
                 mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
-				fasilin: 'deslrtin.html',
-				fasilout: 'deslrtout.html',
+                fasilin: 'deslrtin.html',
+                fasilout: 'deslrtout.html',
                 gambarPendukung: [
                     'images/lrt/lrt1019/lrt1019kt1.jpeg',
                     'images/lrt/lrt1019/lrt1019kt2.jpeg',
@@ -469,16 +498,16 @@
                 id: 6, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
                 judul: 'Apartemen Royal Park Sentul, Bogor (1020)', 
                 harga: 'Studio Deluxe, No.1020', 
-                namaAgen: 'Irwan',
+                agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
                 spek: 'Luas: 27.50 m2 | Balkon | Full Furnish | Kulkas, TV, 1 AC, Water Heater, Dispenser, Kompor Tanam Hood Hock Bermerek',
                 motoj: 'Rp. 750.000.000,-', 
-				motor: 'tidak disewakan', 
+                motor: 'tidak disewakan', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor',
                 deskripsi: 'Menghadap Utara, view Tol Jagorawi, Berdampingan dengan 1019 bisa terkoneksi, Interior mewah.',
-				imgUtama: 'images/lrt/lrt1020/lrt1020kt1.jpeg',
+                imgUtama: 'images/lrt/lrt1020/lrt1020kt1.jpeg',
                 mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
-				fasilin: 'deslrtin.html',
-				fasilout: 'deslrtout.html',
+                fasilin: 'deslrtin.html',
+                fasilout: 'deslrtout.html',
                 gambarPendukung: [
                     'images/lrt/lrt1020/lrt1020kt1.jpeg',
                     'images/lrt/lrt1020/lrt1020kt2.jpeg',
@@ -489,16 +518,16 @@
                 id: 7, tipe: 'apartemen', status: 'terjual', wilayah: 'bogor',
                 judul: 'Apartemen Royal Park Sentul, Bogor (3038)', 
                 harga: 'Studio Regular, No.3038',  
-                namaAgen: 'Irwan',
+                agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
                 spek: 'Luas: 23.50 m2 | Balkon | Full Furnish | Kulkas, TV, 1 AC, Water Heater, Kompor Tanam Hood Hock Bermerek',
                 motoj: 'Rp. 530.000.000,-', 
                 motor: 'tidak disewakan', 
                 alamat: 'Jl. Sentul Raya, Kadumangu, Kec. Babakan Madang, Bogor.',
                 deskripsi: 'Menghadap Utara, view 4 gunung: gunung Gede, gunung Pancar, gunung Hambalang, gunung Pangrango, jalan utama Babakan Madang Raya dan ke Circuit Sentul, dekat pusat perbelanjaan; AEON Mall, Cibinong City Mall, Sentul City Plaza, dekat beberapa kampus; Trisakti, Institut Teknologi dan Bisnis, dekat wisata',
-				imgUtama: 'images/lrt/lrt3038/lrt3038kt1.jpeg',
-				mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
-				fasilin: 'deslrtin.html',
-				fasilout: 'deslrtout.html',
+                imgUtama: 'images/lrt/lrt3038/lrt3038kt1.jpeg',
+                mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
+                fasilin: 'deslrtin.html',
+                fasilout: 'deslrtout.html',
                 gambarPendukung: [
                     'images/lrt/lrt3038/lrt3038kt1.jpeg',
                     'images/lrt/lrt3038/lrt3038kt2.jpeg',
@@ -508,40 +537,44 @@
             }
         ];
 
-        // DATA AGENT
-        const dataTopAgen = [
-            { nama: "Irwan", foto: "images/agen/irwan.jpg", telp: "6285196447071" },
-            { nama: "Irna", foto: "images/agen/irna.png", telp: "6281237279050" },
-            { nama: "Gaby", foto: "images/agen/gaby.png", telp: "62817202065" }
-        ];
-
-        let arrayFotoLightboxMekanis = [];
-        let indeksFotoAktifSekarang = 0;
+        function gantiBahasaGlobal(lang) {
+            bahasaAktif = lang;
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (kamusBahasa[lang] && kamusBahasa[lang][key]) {
+                    el.innerHTML = kamusBahasa[lang][key];
+                }
+            });
+            tampilkanKatalog(daftarProperti);
+            renderDaftarAgen(dataTopAgen);
+        }
 
         function tampilkanKatalog(properti) {
             const listContainer = document.getElementById('property-list');
             const selectEl = document.getElementById('form-properti-pilihan');
+            if (!listContainer) return;
+
             listContainer.innerHTML = '';
+            if (selectEl) selectEl.innerHTML = '<option value="Umum">Tanya Umum / Belum Memilih Unit</option>';
             
-            if(selectEl) selectEl.innerHTML = '<option value="Umum">Tanya Umum / Belum Memilih Unit</option>';
-            
-            if(properti.length === 0) {
+            if (properti.length === 0) {
                 listContainer.innerHTML = `<div class="p-12 text-center bg-white rounded-xl border border-gray-100 text-gray-400 font-medium">${kamusBahasa[bahasaAktif]['prop-not-found']}</div>`;
                 return;
             }
 
             properti.forEach(item => {
-                if(selectEl) {
+                if (selectEl) {
                     const opt = document.createElement('option');
                     opt.value = item.judul;
                     opt.innerHTML = `[${item.tipe.toUpperCase()}] ${item.judul}`;
                     selectEl.appendChild(opt);
                 }
 
+                // Render Galeri Gambar Kecil
                 let htmlThumbs = '';
                 item.gambarPendukung.forEach((urlFoto) => {
                     htmlThumbs += `
-                        <div class="relative aspect-video overflow-hidden rounded-lg border border-gray-200">
+                        <div class="relative aspect-video overflow-hidden rounded-lg border border-gray-200 bg-gray-50">
                             <img src="${urlFoto}" class="w-full h-full object-cover cursor-zoom-in hover:scale-105 transition duration-300" 
                                  onmouseover="gantiPreview(${item.id}, '${urlFoto}')"
                                  onclick="bukaMekanismeGaleriBesar(${item.id}, '${urlFoto}')">
@@ -549,11 +582,56 @@
                     `;
                 });
 
-// ... (Kode di atasnya tetap sama)
+                // RENDER BLOK AGEN PENANGGUNG JAWAB UNIT
+                let htmlAgentsBlock = `
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <div class="flex items-center justify-between mb-2">
+                            <p class="text-[11px] font-bold uppercase tracking-wider text-blue-900 flex items-center gap-1.5">
+                        </div>
+                        <div class="flex flex-wrap gap-2.5">
+                `;
+
+                // Ambil data agen terpilih berdasarkan array item.agents
+                const agenDaftar = item.agents || ['Irwan'];
+                agenDaftar.forEach(namaAgen => {
+                    const dataAg = dataTopAgen.find(a => a.nama.toLowerCase() === namaAgen.toLowerCase()) || {
+                        nama: namaAgen,
+                        foto: "images/agen/irwan.jpg",
+                        telp: "6285196447071"
+                    };
+
+                    // Format Pesan Otomatis WhatsApp
+                    const pesanOtomatis = `Halo ${dataAg.nama}, saya berminat dan ingin menanyakan informasi lebih lanjut mengenai properti:%0A%0A*${item.judul}*%0A- *Tipe:* ${item.harga}%0A- *Spesifikasi:* ${item.spek}%0A- *Harga Jual:* ${item.motoj}%0A- *Harga Sewa:* ${item.motor}%0A%0AMohon bantuannya. Terima kasih!`;
+                    const waUrl = `https://wa.me/${dataAg.telp}?text=${pesanOtomatis}`;
+
+                    htmlAgentsBlock += `
+                        <a href="${waUrl}" target="_blank" title="Chat dengan ${dataAg.nama} di WhatsApp" 
+                           class="flex items-center gap-2.5 bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 p-2 pr-3.5 rounded-xl transition-all duration-200 group shadow-xs hover:shadow-md cursor-pointer">
+                            <div class="relative">
+                                <img src="${dataAg.foto}" class="w-9 h-9 rounded-full object-cover border-2 border-emerald-500 group-hover:scale-105 transition" alt="${dataAg.nama}">
+                                <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full flex items-center justify-center text-[8px] text-white"><i class="fab fa-whatsapp"></i></span>
+                            </div>
+                            <div class="text-left">
+                                <span class="text-xs font-extrabold text-gray-800 group-hover:text-emerald-700 block leading-tight">${dataAg.nama}</span>
+                                <span class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1 mt-0.5">
+                                    <i class="fab fa-whatsapp text-xs"></i> <span>Tanya Unit</span>
+                                </span>
+                            </div>
+                        </a>
+                    `;
+                });
+
+                htmlAgentsBlock += `
+                        </div>
+                    </div>
+                `;
+
+                // Kartu Utama Properti
                 const card = `
-						<div id="properti-${item.id}" class="scroll-mt-24 bg-white rounded-2xl shadow-md border border-gray-100 p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 property-card">
-							<div class="lg:col-span-6 flex flex-col gap-3">
-								<div class="relative h-64 md:h-80 w-full overflow-hidden rounded-xl border border-gray-100 bg-gray-50">                                <img id="cover-${item.id}" src="${item.imgUtama}" class="w-full h-full object-cover cursor-zoom-in" onclick="bukaLightboxUtamaLokal(${item.id})" alt="Utama">
+                    <div id="properti-${item.id}" class="scroll-mt-24 bg-white rounded-2xl shadow-md border border-gray-100 p-6 grid grid-cols-1 lg:grid-cols-12 gap-8 property-card">
+                        <div class="lg:col-span-6 flex flex-col gap-3">
+                            <div class="relative h-64 md:h-80 w-full overflow-hidden rounded-xl border border-gray-100 bg-gray-50">
+                                <img id="cover-${item.id}" src="${item.imgUtama}" class="w-full h-full object-cover cursor-zoom-in" onclick="bukaLightboxUtamaLokal(${item.id})" alt="Utama">
                                 <span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider shadow">${item.tipe}</span>
                             </div>
                             <div class="grid grid-cols-5 gap-2">
@@ -562,23 +640,23 @@
                         </div>
                         <div class="lg:col-span-6 flex flex-col justify-between">
                             <div>
-                                <h3 class="text-blue-600 font-extrabold text-xl text-gray-900 mb-1 leading-tight">${item.judul}</h3>
-                                <p class="text-blue-400 font-black text-xl mb-1">${item.harga}</p>
-                                <p>
-                                    <a href="https://www.google.com/maps?q=${encodeURIComponent(item.judul)}" target="_blank" class="text-gray-400 text-xs mb-4 flex items-center gap-1 hover:text-blue-600 transition group w-fit cursor-pointer">
-                                        <i class="fa-solid fa-location-dot text-red-500 group-hover:scale-110 transition"></i> 
-                                        <span class="underline decoration-dotted">${item.alamat}</span> 
-                                    </a> 
-                                </p>
+                                <h3 class="text-blue-900 font-extrabold text-xl mb-1 leading-tight">${item.judul}</h3>
+                                <p class="text-blue-600 font-black text-xl mb-1">${item.harga}</p>
+                                <a href="https://www.google.com/maps?q=${encodeURIComponent(item.judul)}" target="_blank" class="text-gray-400 text-xs mb-4 flex items-center gap-1 hover:text-blue-600 transition group w-fit cursor-pointer">
+                                    <i class="fa-solid fa-location-dot text-red-500 group-hover:scale-110 transition"></i> 
+                                    <span class="underline decoration-dotted">${item.alamat}</span> 
+                            <span class="text-[10px] text-gray-400 text-red-500 italic font-medium hidden sm:inline">${kamusBahasa[bahasaAktif]['click-to-chat']}</span>
+									
+                                </a>
 
-					            <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 mb-4">
+                                <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 mb-4">
                                     <p class="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-1">${kamusBahasa[bahasaAktif]['spec-title']}</p>
-									<p class="text-sm font-semibold text-gray-700 mb-2"> ${item.spek}</p>
-									<p class="text-[11px] font-bold uppercase tracking-wider text-red-600 mb-0.5">${kamusBahasa[bahasaAktif]['jmotoj']} <span class="text-gray-700 font-normal"> ${item.motoj}</span></p>
-									<p class="text-[11px] font-bold uppercase tracking-wider text-red-600">${kamusBahasa[bahasaAktif]['jmotor']} <span class="text-gray-700 font-normal"> ${item.motor}</span></p>
+                                    <p class="text-sm font-semibold text-gray-700 mb-2">${item.spek}</p>
+                                    <p class="text-[11px] font-bold uppercase tracking-wider text-red-600 mb-0.5">${kamusBahasa[bahasaAktif]['jmotoj']} <span class="text-gray-700 font-normal">${item.motoj}</span></p>
+                                    <p class="text-[11px] font-bold uppercase tracking-wider text-red-600">${kamusBahasa[bahasaAktif]['jmotor']} <span class="text-gray-700 font-normal">${item.motor}</span></p>
                                 </div>
 
-                                <!-- TOMBOL FASILITAS DALAM & LUAR YANG BARU -->
+                                <!-- TOMBOL FASILITAS -->
                                 <div class="grid grid-cols-2 gap-3 my-4">
                                     <a href="${item.fasilin}?id=${item.id}" class="flex items-center justify-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs py-2.5 px-3 rounded-xl border border-blue-200 transition shadow-xs text-center">
                                         <i class="fa-solid fa-couch"></i> Fasilitas Dalam
@@ -593,19 +671,20 @@
                                     <p id="desc-full-${item.id}" class="hidden text-gray-600 text-xs leading-relaxed bg-blue-50/40 p-3 rounded-lg border border-blue-100/50">${item.deskripsi}</p>
                                     <button id="btn-read-${item.id}" onclick="toggleDeskripsi(${item.id})" class="text-blue-600 hover:text-blue-800 font-bold text-xs mt-1 cursor-pointer">${kamusBahasa[bahasaAktif]['btn-more']} <i class="fa-solid fa-chevron-down text-[9px]"></i></button>
                                 </div>
-							</div>
+
+                                <!-- HASIL INJEKSI BLOK MULTI AGEN -->
+                                ${htmlAgentsBlock}
+                            </div>
                             <div class="mt-6 pt-4 border-t border-gray-100 flex gap-3">
                                 <a href="#hubungi" onclick="setPropertiPilihan('${item.judul}')" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-sm text-sm">${kamusBahasa[bahasaAktif]['btn-ask']}</a>
                             </div>
                         </div>
                     </div>
                 `;
-// ... (Kode di bawahnya tetap sama)
                 listContainer.innerHTML += card;
             });
         }
 
-        // FILTER SEARCH LOGIC WITH AGENT SUPPORT
         function jalankanPencarianKatalog() {
             const tipe = document.getElementById('search-tipe').value;
             const status = document.getElementById('search-status').value;
@@ -614,39 +693,41 @@
 
             let filterHasil = daftarProperti;
 
-            if(tipe !== 'semua') filterHasil = filterHasil.filter(item => item.tipe === tipe);
-            if(status !== 'semua') filterHasil = filterHasil.filter(item => item.status === status);
-            if(wilayah !== 'semua') filterHasil = filterHasil.filter(item => item.wilayah === wilayah);
-            if(agen !== 'semua') filterHasil = filterHasil.filter(item => item.namaAgen === agen);
+            if (tipe !== 'semua') filterHasil = filterHasil.filter(item => item.tipe === tipe);
+            if (status !== 'semua') filterHasil = filterHasil.filter(item => item.status === status);
+            if (wilayah !== 'semua') filterHasil = filterHasil.filter(item => item.wilayah === wilayah);
+            
+            // DUKUNGAN MULTI-AGEN PADA SEARCH FILTER
+            if (agen !== 'semua') {
+                filterHasil = filterHasil.filter(item => {
+                    if (Array.isArray(item.agents)) {
+                        return item.agents.some(a => a.toLowerCase() === agen.toLowerCase());
+                    }
+                    return item.namaAgen && item.namaAgen.toLowerCase() === agen.toLowerCase();
+                });
+            }
 
             tampilkanKatalog(filterHasil);
             document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // SEARCH TOP AGENT BY TEXT
-        function filterCariNamaAgen() {
-            const query = document.getElementById('input-cari-agen').value.toLowerCase().trim();
-            const filterAgen = dataTopAgen.filter(ag => ag.nama.toLowerCase().includes(query));
-            renderDaftarAgen(filterAgen);
-        }
-
-        // RENDER AGENTS TO DOM
         function renderDaftarAgen(agenData) {
             const container = document.getElementById('container-top-agen');
+            if (!container) return;
             container.innerHTML = '';
-            
-            if(agenData.length === 0){
-                container.innerHTML = `<div class="col-span-full py-6 text-center text-gray-400 text-sm">${kamusBahasa[bahasaAktif]['agent-not-found']}</div>`;
+
+            if (agenData.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-400 font-medium py-4">${kamusBahasa[bahasaAktif]['agent-not-found']}</p>`;
                 return;
             }
 
             agenData.forEach(ag => {
                 const element = `
-                    <div class="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-center shadow-xs flex flex-col items-center">
+                    <div class="bg-gray-50 border border-gray-100 p-4 rounded-2xl text-center shadow-xs flex flex-col items-center w-36 sm:w-44 hover:shadow-md transition">
                         <img src="${ag.foto}" class="w-16 h-16 rounded-full object-cover mb-3 border-2 border-blue-600 shadow-sm" alt="${ag.nama}">
                         <h4 class="font-bold text-gray-900 text-sm line-clamp-1">${ag.nama}</h4>
                         <p class="text-[10px] text-gray-400 font-semibold uppercase tracking-wider mb-3">${kamusBahasa[bahasaAktif]['agent-verified']}</p>
-                        <a href="https://wa.me/${ag.telp}" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs py-2 rounded-xl font-bold transition flex items-center justify-center gap-1">
+                        <a href="https://wa.me/${ag.telp}?text=Halo%20${ag.nama},%20saya%20ingin%20berkonsultasi%20mengenai%20properti." target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white text-xs py-2 rounded-xl font-bold transition flex items-center justify-center gap-1 shadow-xs">
                             <i class="fab fa-whatsapp"></i> Hubungi
                         </a>
                     </div>
@@ -655,15 +736,22 @@
             });
         }
 
-        // LIGHTBOX MECHANICS
+        function filterCariNamaAgen() {
+            const query = document.getElementById('input-cari-agen').value.toLowerCase().trim();
+            const filterAgen = dataTopAgen.filter(ag => ag.nama.toLowerCase().includes(query));
+            renderDaftarAgen(filterAgen);
+        }
+
+        // LIGHTBOX & SLIDER MECHANICS
+        let arrayFotoLightboxMekanis = [];
+        let indeksFotoAktifSekarang = 0;
+
         function bukaMekanismeGaleriBesar(propertiId, urlFotoAktif) {
             const properti = daftarProperti.find(p => p.id === propertiId);
-            if(!properti) return;
-
+            if (!properti) return;
             arrayFotoLightboxMekanis = properti.gambarPendukung;
             indeksFotoAktifSekarang = arrayFotoLightboxMekanis.indexOf(urlFotoAktif);
-            if(indeksFotoAktifSekarang === -1) indeksFotoAktifSekarang = 0;
-
+            if (indeksFotoAktifSekarang === -1) indeksFotoAktifSekarang = 0;
             perbaruiTampilanMekanisLightbox();
             document.getElementById('lightbox').style.display = 'flex';
         }
@@ -674,33 +762,28 @@
         }
 
         function perbaruiTampilanMekanisLightbox() {
-            const imgEl = document.getElementById('lightbox-img');
-            const counterEl = document.getElementById('lightbox-counter');
-            
-            imgEl.src = arrayFotoLightboxMekanis[indeksFotoAktifSekarang];
-            counterEl.innerText = `${kamusBahasa[bahasaAktif]['img-counter']} ${indeksFotoAktifSekarang + 1} / ${arrayFotoLightboxMekanis.length}`;
+            document.getElementById('lightbox-img').src = arrayFotoLightboxMekanis[indeksFotoAktifSekarang];
+            document.getElementById('lightbox-counter').innerText = `${kamusBahasa[bahasaAktif]['img-counter']} ${indeksFotoAktifSekarang + 1} / ${arrayFotoLightboxMekanis.length}`;
         }
 
         function geserGambarMaju(event) {
             event.stopPropagation();
-            if(arrayFotoLightboxMekanis.length === 0) return;
             indeksFotoAktifSekarang = (indeksFotoAktifSekarang + 1) % arrayFotoLightboxMekanis.length;
             perbaruiTampilanMekanisLightbox();
         }
 
         function geserGambarMundur(event) {
             event.stopPropagation();
-            if(arrayFotoLightboxMekanis.length === 0) return;
             indeksFotoAktifSekarang = (indeksFotoAktifSekarang - 1 + arrayFotoLightboxMekanis.length) % arrayFotoLightboxMekanis.length;
             perbaruiTampilanMekanisLightbox();
         }
 
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-
-        function gantiPreview(id, urlBaru) {
-            document.getElementById(`cover-${id}`).src = urlBaru;
+        function closeLightbox() { document.getElementById('lightbox').style.display = 'none'; }
+        function gantiPreview(id, urlBaru) { document.getElementById(`cover-${id}`).src = urlBaru; }
+        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('hidden'); }
+        function setPropertiPilihan(judul) { 
+            const selectEl = document.getElementById('form-properti-pilihan');
+            if (selectEl) selectEl.value = judul;
         }
 
         function toggleDeskripsi(id) {
@@ -716,25 +799,18 @@
             }
         }
 
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        }
-
-        function setPropertiPilihan(judul) {
-            document.getElementById('form-properti-pilihan').value = judul;
-        }
-
         function kirimFormKeWhatsApp(event) {
             event.preventDefault();
             const nama = document.getElementById('form-nama').value;
             const unit = document.getElementById('form-properti-pilihan').value;
             const pesan = document.getElementById('form-pesan').value;
-            const text = `Halo, saya mengisi form di web.%0A%0A*Nama:* ${nama}%0A*Unit:* ${unit}%0A*Pesan:* ${pesan}`;
+            const text = `Halo, saya mengisi form di website.%0A%0A*Nama:* ${nama}%0A*Unit Properti:* ${unit}%0A*Pesan:* ${pesan}`;
             window.open(`https://wa.me/6285196447071?text=${text}`, '_blank');
         }
 
         function inisialisasiHeroSlider() {
             const container = document.getElementById('hero-slider');
+            if (!container) return;
             const listGambar = daftarProperti.map(item => item.imgUtama);
             container.innerHTML = '';
             listGambar.forEach((url, index) => {
@@ -747,7 +823,7 @@
             let indeksSlide = 0;
             const slides = container.getElementsByClassName('slide-fade');
             setInterval(() => {
-                if(slides.length > 1) {
+                if (slides.length > 1) {
                     slides[indeksSlide].classList.remove('active');
                     indeksSlide = (indeksSlide + 1) % slides.length;
                     slides[indeksSlide].classList.add('active');
@@ -755,46 +831,12 @@
             }, 4000);
         }
 
-        // INITIAL LOAD
-        tampilkanKatalog(daftarProperti);
-        renderDaftarAgen(dataTopAgen);
-        inisialisasiHeroSlider();
+        // INITIALIZE ON LOAD
+        window.addEventListener('DOMContentLoaded', () => {
+            tampilkanKatalog(daftarProperti);
+            renderDaftarAgen(dataTopAgen);
+            inisialisasiHeroSlider();
+        });
     </script>
-	
-<footer class="bg-gray-900 text-gray-400 text-xs py-10 mt-20 border-t border-gray-800">
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
-        
-        <!-- Kolom Kiri: Branding Singkat -->
-        <div>
-            <h3 class="text-white font-extrabold text-base tracking-wider mb-2">PROPERTI KATALOG</h3>
-            <p class="text-gray-500 leading-relaxed">Menyediakan pilihan hunian terbaik, strategis, dan bernilai investasi tinggi di lokasi prima.</p>
-        </div>
-
-        <!-- Kolom Tengah: Navigasi Cepat / Jaminan -->
-        <div class="flex flex-col gap-1.5 md:items-center">
-            <span class="text-white font-bold text-sm mb-1">Layanan Kami</span>
-            <div class="flex flex-wrap justify-center gap-4 text-gray-400">
-                <a href="#" class="hover:text-blue-400 transition">Beranda</a>
-                <a href="#hubungi" class="hover:text-blue-400 transition">Hubungi Agen</a>
-                <a href="#" class="hover:text-blue-400 transition">Syarat & Ketentuan</a>
-            </div>
-        </div>
-
-        <!-- Kolom Kanan: Sosmed & Copyright -->
-        <div class="md:text-right">
-            <span class="text-white font-bold text-sm block mb-2">Ikuti Kami</span>
-            <div class="flex justify-center md:justify-end gap-4 mb-4 text-base">
-                <a href="#" class="hover:text-blue-400 text-gray-500 transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-blue-400 text-gray-500 transition"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://wa.me/" class="hover:text-emerald-400 text-gray-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
-            </div>
-            <p class="text-[11px] text-gray-600">&copy; 2026 Properti Katalog. All rights reserved.</p>
-        </div>
-
-    </div>
-</footer>	
-	
-	
-	
 </body>
 </html>
