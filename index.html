@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RumahImpian.id - Jual & Sewa Properti Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         
-        body { font-family: 'Inter', sans-serif; } 
+        body { font-family: 'Inter', sans-serif; }
         
         .property-card {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -76,7 +76,8 @@
         <div class="absolute inset-0 bg-black/50 z-10"></div>
         <div class="relative z-20 max-w-4xl px-6 text-center space-y-2">
             <p class="text-xs md:text-sm font-black uppercase tracking-widest text-amber-400 drop-shadow" data-lang="hero-tag">INVESTASI AMAN & TERPERCAYA</p>
-            <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight drop-shadow-xl" data-lang="hero-title">Temukan Hunian & Aset Terbaik</h1> 
+            <h1 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight drop-shadow-xl" data-lang="hero-title">Temukan Hunian & Aset Terbaik</h1>
+            <p class="text-xs md:text-base opacity-90 font-light max-w-2xl mx-auto" data-lang="hero-desc">Legalitas prima dipandu oleh jajaran profesional tepercaya.</p>
         </div>
     </header>
 
@@ -116,6 +117,7 @@
                         <option value="semua" data-lang="opt-all-location">Semua Lokasi</option>
                         <option value="depok">Indonesia, Jawa Barat, Depok</option>
                         <option value="bogor">Indonesia, Jawa Barat, Bogor</option>
+                        <option value="jakarta utara">Indonesia, DKI Jakarta, Jakarta Utara</option>
                     </select>
                 </div>
                 <div>
@@ -125,7 +127,8 @@
                         <option value="Irwan">Irwan</option>
                         <option value="Irna">Irna</option>
                         <option value="Gaby">Gaby</option>
-                    </select>
+                        <option value="Bagus">Bagus</option>
+						</select>
                 </div>
             </div>
             <div class="mt-4 flex justify-end">
@@ -221,10 +224,16 @@
 
     <!-- FOOTER -->
     <footer class="bg-gray-900 text-gray-400 text-xs py-10 mt-20 border-t border-gray-800">
-        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
             <div class="space-y-2">
                 <h3 class="text-white font-extrabold text-base tracking-wider">PROPERTI KATALOG</h3>
                 <p class="text-gray-500 leading-relaxed">Menyediakan pilihan hunian terbaik, strategis, dan bernilai investasi tinggi di lokasi prima.</p>
+            </div>
+            <div class="flex flex-col space-y-2">
+                <span class="text-white font-bold text-sm border-b border-gray-800 pb-1">Menu Utama</span>
+                <a href="#katalog" class="hover:text-blue-400 transition flex items-center gap-1 justify-center md:justify-start">Beranda</a>
+                <a href="#agen" class="hover:text-blue-400 transition flex items-center gap-1 justify-center md:justify-start">Hubungi Agen</a>
+                <a href="#peta" class="hover:text-blue-400 transition flex items-center gap-1 justify-center md:justify-start">Lokasi Peta</a>
             </div>
 			
         <!-- Kolom Tengah: Navigasi Cepat / Jaminan -->
@@ -298,7 +307,6 @@
                 "prop-not-found": "Properti yang Anda cari tidak ditemukan. Hubungi kami untuk opsi pencarian lain.",
                 "btn-more": "Selengkapnya",
                 "btn-less": "Sembunyikan",
-                "btn-ask": "Tanyakan Detail Unit",
                 "unit-agents-title": "Agen Penanggung Jawab Unit",
                 "click-to-chat": "Klik ",
                 "spec-title": "Spesifikasi Unit:",
@@ -349,7 +357,6 @@
                 "prop-not-found": "Properties not found. Contact us for more options.",
                 "btn-more": "Read More",
                 "btn-less": "Show Less",
-                "btn-ask": "Inquire Unit Details",
                 "unit-agents-title": "Unit Responsible Agents",
                 "click-to-chat": "Click",
                 "spec-title": "Unit Specification:",
@@ -365,13 +372,14 @@
         const dataTopAgen = [
             { nama: "Irwan", foto: "images/agen/irwan.jpg", telp: "6285196447071" },
             { nama: "Irna", foto: "images/agen/irna.png", telp: "6281237279050" },
-            { nama: "Gaby", foto: "images/agen/gaby.png", telp: "62817202065" }
+            { nama: "Gaby", foto: "images/agen/gaby.png", telp: "62817202065" },
+            { nama: "Bagus", foto: "images/agen/bagus.png", telp: "6282297330811" }
         ];
 
         // DATABASE PROPERTI DENGAN MULTI-AGEN PER UNIT
         const daftarProperti = [
             { 
-                id: 1, tipe: 'apartemen', status: 'dijual/disewa', wilayah: 'depok',
+                id: 1, tipe: 'apartemen', status: 'dijual', wilayah: 'depok',
                 judul: 'Apartemen Atlanta di Pusat Kota Depok', 
                 harga: '1 Bedroom Original, No.10A2 (HOOK)', 
                 agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
@@ -415,7 +423,7 @@
                 ]
             },
             { 
-                id: 3, tipe: 'apartemen', status: 'dijual/disewa', wilayah: 'bogor',
+                id: 3, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
                 judul: 'Saffron Apartemen Sentul', 
                 harga: 'Studio Deluxe, No.830', 
                 agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
@@ -440,7 +448,7 @@
                 ]
             },
             { 
-                id: 4, tipe: 'apartemen', status: 'dijual/disewa', wilayah: 'bogor',
+                id: 4, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
                 judul: 'Apartemen Royal Park Sentul, Bogor (2161)', 
                 harga: '2 Bedroom, No.2161 (HOOK)', 
                 agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
@@ -508,7 +516,7 @@
                 ]
             },
             { 
-                id: 7, tipe: 'apartemen', status: 'terjual', wilayah: 'bogor',
+                id: 7, tipe: 'apartemen', status: 'dijual', wilayah: 'bogor',
                 judul: 'Apartemen Royal Park Sentul, Bogor (3038)', 
                 harga: 'Studio Regular, No.3038',  
                 agents: ['Irwan', 'Gaby'], // MULTI-AGEN PER UNIT
@@ -526,6 +534,28 @@
                     'images/lrt/lrt3038/lrt3038kt2.jpeg',
                     'images/lrt/lrt3038/lrt3038kt3.jpeg',
                     'images/lrt/lrt3038/lrt3038ktv.jpeg'
+                ]
+            },
+            { 
+                id: 8, tipe: 'rumah', status: 'dijual', wilayah: 'jakarta utara',
+                judul: 'Rumah, Sunter, Tanjung Priok, Jakarta Utara ', 
+                harga: 'SHM',  
+                agents: ['bagus'], // MULTI-AGEN PER UNIT
+                spek: 'Luas: 7x20 | 2 lantai full bangunan | 2 KT | 2 KM | 1 Gudang | 1 Dapur | Ruang Tamu | Garasi',
+				
+                motoj: 'Rp. 2.300.000.000,-', 
+                motor: 'tidak disewakan', 
+                alamat: 'Sunter, Tanjung Priok, Jakarta Utara',
+                deskripsi: 'Rumah menghadap Barat, dekat Sunter Mall, Pasar, GOR Sunter, Hotel Sunlake, Waduk Sunter, RS Mitra Kemayoran, Sekolah Jubilee, pusat kuliner, Northen Park Residence dan Toll.',
+                imgUtama: 'images/bagus/rmh-tp01-depan.jpg',
+                mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
+                fasilin: 's',
+                fasilout: 's',
+                gambarPendukung: [
+                    'images/bagus/rmh-tp01-depan.jpg',
+                    'images/bagus/rmh-tp01-rtamu.jpg',
+                    'images/bagus/rmh-tp01-tangga.jpg',
+                    'images/bagus/rmh-tp01-pmobil.jpg'
                 ]
             }
         ];
@@ -650,15 +680,18 @@
                                 </div>
 
                                 <!-- TOMBOL FASILITAS -->
-                                <div class="grid grid-cols-2 gap-3 my-4">
-                                    <a href="${item.fasilin}?id=${item.id}" class="flex items-center justify-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs py-2.5 px-3 rounded-xl border border-blue-200 transition shadow-xs text-center">
-                                        <i class="fa-solid fa-couch"></i> Fasilitas Dalam
-                                    </a>
-                                    <a href="${item.fasilout}?id=${item.id}" class="flex items-center justify-center gap-2 bg-orange-50 hover:bg-orange-100 text-orange-700 font-bold text-xs py-2.5 px-3 rounded-xl border border-orange-200 transition shadow-xs text-center">
-                                        <i class="fa-solid fa-tree"></i> Fasilitas Luar
-                                    </a>
-                                </div>
+${(item.fasilin && item.fasilin.trim() !== '' && item.fasilin !== 's') ? `
+    <div class="grid grid-cols-2 gap-3 my-4">
+        <a href="${item.fasilin}?id=${item.id}" class="flex items-center justify-center gap-2 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs py-2.5 px-3 rounded-xl border border-blue-200 transition shadow-xs text-center">
+            <i class="fa-solid fa-couch"></i> Fasilitas Dalam
+        </a>
+        <a href="${item.fasilout}?id=${item.id}" class="flex items-center justify-center gap-2 bg-orange-50 hover:bg-orange-100 text-orange-700 font-bold text-xs py-2.5 px-3 rounded-xl border border-orange-200 transition shadow-xs text-center">
+            <i class="fa-solid fa-tree"></i> Fasilitas Luar
+        </a>
+    </div>
+` : ''}
 
+								
                                 <div class="pt-2">
                                     <p id="desc-short-${item.id}" class="text-gray-600 text-xs leading-relaxed line-clamp-3">${item.deskripsi}</p>
                                     <p id="desc-full-${item.id}" class="hidden text-gray-600 text-xs leading-relaxed bg-blue-50/40 p-3 rounded-lg border border-blue-100/50">${item.deskripsi}</p>
@@ -667,9 +700,6 @@
 
                                 <!-- HASIL INJEKSI BLOK MULTI AGEN -->
                                 ${htmlAgentsBlock}
-                            </div>
-                            <div class="mt-6 pt-4 border-t border-gray-100 flex gap-3">
-                                <a href="#hubungi" onclick="setPropertiPilihan('${item.judul}')" class="flex-1 text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition shadow-sm text-sm">${kamusBahasa[bahasaAktif]['btn-ask']}</a>
                             </div>
                         </div>
                     </div>
