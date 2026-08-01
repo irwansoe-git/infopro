@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RumahImpian.id - Jual & Sewa Properti Premium</title>
+    <title>rumahros.comx - Jual & Sewa Properti Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -38,37 +38,38 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- NAVIGATION -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white text-2xl font-bold shadow-md">🏠</div>
-                <div>
-                    <h1 class="text-2xl font-bold tracking-tight text-blue-900">RumahImpian.id</h1>
-                    <p class="text-xs text-gray-500 -mt-1" data-lang="nav-subtitle">Properti Terpercaya</p>
-                </div>
-            </a>
-            
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                <a href="#katalog" class="nav-link text-gray-700 hover:text-blue-700" data-lang="nav-properties">Properti</a>
-                <a href="#agen" class="nav-link text-gray-700 hover:text-blue-700" data-lang="nav-agents">Agen</a>
-                <a href="#hubungi" class="nav-link text-gray-700 hover:text-blue-700" data-lang="nav-contact">Hubungi Kami</a>
+<!-- NAVIGATION -->
+<nav class="bg-white shadow-md top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-7 flex justify-between items-center">
+        <!-- Link Beranda & Logo Gambar -->
+        <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logorumahros.png" alt="Logo RumahImpian" class="w-20 h-20 object-contain rounded-xl">
+            <div>
+                <h1 class="text-2xl font-bold tracking-tight text-blue-900">rumahros.comy</h1>
+                <p class="text-xs text-gray-500 -mt-1" data-lang="nav-subtitle">Properti Terpercaya</p>
             </div>
-            
-            <div class="flex items-center gap-4">
-                <a href="https://wa.me/6285196447071" target="_blank" class="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition shadow-md">
-                    <i class="fab fa-whatsapp"></i><span>Chat WA</span>
-                </a>
-                <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-gray-700 focus:outline-none"><i class="fas fa-bars"></i></button>
-            </div>
+        </a>
+        
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <a href="#katalog" class="nav-link text-gray-700 hover:text-blue-700" data-lang="nav-properties">Properti</a>
+            <a href="#agen" class="nav-link text-gray-700 hover:text-blue-700" data-lang="nav-agents">Agen</a>
+            <a href="#hubungi" class="nav-link text-gray-700 hover:text-blue-700" data-lang="nav-contact">Hubungi Kami</a>
         </div>
         
-        <div id="mobileMenu" class="hidden bg-white border-t px-6 py-4 flex flex-col gap-3 md:hidden font-medium">
-            <a href="#katalog" onclick="toggleMobileMenu()" data-lang="nav-properties">Properti</a>
-            <a href="#agen" onclick="toggleMobileMenu()" data-lang="nav-agents">Agen</a>
-            <a href="#hubungi" onclick="toggleMobileMenu()" data-lang="nav-contact">Hubungi Kami</a>
+        <div class="flex items-center gap-4">
+            <a href="https://wa.me/6285196447071" target="_blank" class="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2.5 rounded-2xl font-medium text-sm transition shadow-md">
+                <i class="fab fa-whatsapp"></i><span>Chat WA</span>
+            </a>
+            <button onclick="toggleMobileMenu()" class="md:hidden text-2xl text-gray-700 focus:outline-none"><i class="fas fa-bars"></i></button>
         </div>
-    </nav>
+    </div>
+    
+    <div id="mobileMenu" class="hidden bg-white border-t px-6 py-4 flex flex-col gap-3 md:hidden font-medium">
+        <a href="#katalog" onclick="toggleMobileMenu()" data-lang="nav-properties">Properti</a>
+        <a href="#agen" onclick="toggleMobileMenu()" data-lang="nav-agents">Agen</a>
+        <a href="#hubungi" onclick="toggleMobileMenu()" data-lang="nav-contact">Hubungi Kami</a>
+    </div>
+</nav>
 
     <!-- HERO HEADER -->
     <header class="relative h-[360px] md:h-[460px] flex items-center justify-center overflow-hidden text-white">
@@ -213,14 +214,11 @@
         </button>
     </div>
 
-    <!-- FLOATING LANGUAGE SELECTOR -->
-    <div class="fixed bottom-6 right-6 z-50 bg-white p-2 rounded-2xl shadow-2xl border border-gray-100 flex gap-2 items-center">
-        <span class="text-xs font-bold text-gray-500 px-2 uppercase"><i class="fa-solid fa-language text-lg text-blue-600"></i></span>
-        <select id="lang-select" onchange="gantiBahasaGlobal(this.value)" class="bg-gray-50 border border-gray-200 text-xs font-bold py-1.5 px-3 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
-            <option value="id">🇮🇩 ID</option>
-            <option value="en">🇬🇧 EN</option>
-        </select>
-    </div>
+<!-- GOOGLE TRANSLATE CONTAINER -->
+<div class="fixed bottom-6 right-6 z-50">
+    <!-- Element tempat Widget Google Translate dirender -->
+    <div id="google_translate_element"></div>
+</div>
 
     <!-- FOOTER -->
     <footer class="bg-gray-900 text-gray-400 text-xs py-10 mt-20 border-t border-gray-800">
@@ -255,7 +253,7 @@
                     </div>
                 </div>
                 <div class="pt-2 border-t border-gray-800/60">
-                    <p class="text-[11px] text-gray-600">&copy; 2026 RumahImpian.id.<br>All rights reserved.</p>
+                    <p class="text-[11px] text-gray-600">&copy; 2026 rumahros.comz<br>All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -565,7 +563,7 @@
                 judul: 'Rumah Kemayoran, Jakarta Pusat ', 
                 harga: 'Tanah dan Bangunan',  
                 agents: ['bagus'],
-                spek: 'LT: 401 m2 | LB: 219.75 m2',
+                spek: 'Luas Tanah/ Banungan: 401 m2/ 219.75 m2',
                 motoj: 'Rp. 4.2M (NJOP: Rp. 4.8M)', 
                 motor: 'tidak disewakan', 
                 alamat: 'Jln Kemayoran Ketapang. Kemayoran',
@@ -588,7 +586,7 @@
                 motoj: 'Rp. 12 M (10.5 M Nego sampai Deal)', 
                 motor: 'tidak disewakan', 
                 alamat: 'Rumah Pelangi Raya, Gading Residence, Kelapa Gading, Jakarta Utara',
-                deskripsi: 'Menghadap Timur Utara, Air PAM dan Air Tanah, Kondisi Rumah Sangat Bagus dan Terawat, Lokasi Strategis, Dekat Stasiun Pegangsaan Dua, Sumarecon Mall Kelapa Gading, Sekolah, Pusat Kuliner, SPBU, Rumah Sakit, Pusat Bisnis, Hotel, Taman Jogging dan Apartment.',
+                deskripsi: 'Menghadada Timur Utara, Air PAM dan Air Tanah, Kondisi Rumah Sangat Bagus dan Terawat, Lokasi Strategis, Dekat Stasiun Pegangsaan Dua, Sumarecon Mall Kelapa Gading, Sekolah, Pusat Kuliner, SPBU, Rumah Sakit, Pusat Bisnis, Hotel, Taman Jogging dan Apartment.',
                 imgUtama: 'images/bagus/rmh-tp03-dpn.jpg',
                 mapLink: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.831930037682!2d106.8522009!3d-6.5428965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c132852e8cef%3A0x370f86fc7a527812!2sLRT%20CITY%20Sentul%20-%20Royal%20Sentul%20Park!5e0!3m2!1sid!2sid!4v1783679333283!5m2!1sid!2sid',
                 fasilin: '',
@@ -612,17 +610,6 @@
             }
             jumlahPenanyaProp[propId]++;
             
-            // Perbarui tampilan elemen counter di UI (HANYA ANGKA HISTATS)
-            const countElemHeader = document.getElementById(`counter-penanya-${propId}`);
-            if (countElemHeader) {
-                countElemHeader.innerText = jumlahPenanyaProp[propId];
-            }
-            
-            const countElemBtn = document.querySelectorAll(`.counter-btn-${propId}`);
-            countElemBtn.forEach(el => {
-                el.innerText = jumlahPenanyaProp[propId];
-            });
-
             // 2. Kirim detail ke email
             const emailTujuan = "infpro.soe@gmail.com";
             const subjekEmail = encodeURIComponent(`Pertanyaan Unit: ${judulProp}`);
@@ -694,15 +681,6 @@
                 // RENDER BLOK AGEN PENANGGUNG JAWAB UNIT
                 let htmlAgentsBlock = `
                     <div class="mt-4 pt-4 border-t border-gray-100">
-                        <div class="flex items-center justify-between mb-2">
-                            <p class="text-[11px] font-bold uppercase tracking-wider text-blue-900 flex items-center gap-1.5">
-                                <span>Format Pesan Otomatis WhatsApp</span>
-                            </p>
-                            <!-- TAMPILAN ANGKA HISTATS DI KOLOM KANAN ATAS -->
-                            <span id="counter-penanya-${item.id}" class="bg-blue-100 text-blue-800 text-xs font-black px-2 py-0.5 rounded-full shadow-xs">
-                                ${jumlahPenanyaProp[item.id]}
-                            </span>
-                        </div>
                         <div class="flex flex-wrap gap-2.5">
                 `;
 
@@ -715,7 +693,7 @@
                         telp: "6285196447071"
                     };
 
-                    const pesanOtomatis = `Halo ${dataAg.nama}, saya lihat di www.rumahros.com dan saya berminat dan ingin menanyakan informasi lebih lanjut mengenai properti:%0A%0A*${item.judul}*%0A- *Tipe:* ${item.harga}%0A- *Spesifikasi:* ${item.spek}%0A- *Harga Jual:* ${item.motoj}%0A- *Harga Sewa:* ${item.motor}%0A%0AMohon bantuannya. Terima kasih!`;
+                    const pesanOtomatis = `Halo ${dataAg.nama}, saya lihat di rumahros.com dan saya berminat dan ingin menanyakan informasi lebih lanjut mengenai properti:%0A%0A*${item.judul}*%0A- *Tipe:* ${item.harga}%0A- *Spesifikasi:* ${item.spek}%0A- *Harga Jual:* ${item.motoj}%0A- *Harga Sewa:* ${item.motor}%0A%0AMohon bantuannya. Terima kasih!`;
                     const waUrl = `https://wa.me/${dataAg.telp}?text=${pesanOtomatis}`;
 
                     htmlAgentsBlock += `
@@ -731,10 +709,6 @@
                                 <div class="flex items-center gap-1.5 mt-0.5">
                                     <span class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
                                         <i class="fab fa-whatsapp text-xs"></i> <span>Tanya Unit</span>
-                                    </span>
-                                    <!-- ANGKA HISTATS DALAM KOLOM TANYA UNIT -->
-                                    <span class="counter-btn-${item.id} bg-emerald-100 text-emerald-800 text-[10px] font-extrabold px-1.5 py-0.2 rounded-full">
-                                        ${jumlahPenanyaProp[item.id]}
                                     </span>
                                 </div>
                             </div>
@@ -954,5 +928,32 @@
             inisialisasiHeroSlider();
         });
     </script>
+<!-- GOOGLE TRANSLATE SCRIPT -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'id',
+    includedLanguages: 'en,id,zh-CN,ja,ar,ms', // Bahasa yang didukung
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+  /* Menyesuaikan tampilan bawaan Google Translate agar rapi */
+  .goog-te-gadget-simple {
+    background-color: #f9fafb !important;
+    border: 1px solid #e5e7eb !important;
+    padding: 4px 8px !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    font-family: inherit !important;
+  }
+  .goog-te-gadget-icon { display: none !important; }
+  .goog-te-banner-frame { display: none !important; }
+  body { top: 0px !important; }
+</style>
 </body>
 </html>
